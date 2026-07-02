@@ -1,7 +1,8 @@
 # Prompt para o Claude Design — Light mode do Tanuki Sensei
 
 Copie o bloco abaixo para o Claude Design. Anexe/aponte para este repositório
-(ou para a versão publicada: https://design-system-taupe-gamma.vercel.app/).
+(https://github.com/marcelobacca/tanuki-design-system) ou para a versão publicada
+(https://tanuki-design-system.vercel.app/).
 
 ---
 

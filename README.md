@@ -3,7 +3,8 @@
 Fonte da verdade visual do app **Tanuki Sensei** (prática de hiragana/katakana em React Native + Expo).
 Showcase estático (HTML/CSS/JS puro, sem build) que documenta tokens e componentes.
 
-🔗 **Live:** https://design-system-taupe-gamma.vercel.app/
+🔗 **Live:** https://tanuki-design-system.vercel.app/
+📦 **Repo:** https://github.com/marcelobacca/tanuki-design-system (deploy automático a cada push no `main`)
 
 > **Dark mode only** (hoje). Um modo claro (light mode) está sendo estudado — ver [Light mode](#light-mode-em-estudo).
 
