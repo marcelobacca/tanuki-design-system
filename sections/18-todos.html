@@ -1,0 +1,123 @@
+  <section id="todos">
+    <div class="section-header">
+      <p class="section-label">18 — Pendências</p>
+      <h2 class="section-title">Implementar no app</h2>
+      <p class="section-desc">Decisões já tomadas no design system que ainda não foram aplicadas ao código iOS/Android. Implementar nas próximas builds.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+
+      <!-- TODO #1 -->
+      <!-- #01 -->
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:var(--surf);border-radius:12px;border:1px solid var(--border);">
+        <span style="font-size:11px;font-weight:700;color:var(--dim);min-width:28px;padding-top:2px;">#01</span>
+        <div style="flex:1;">
+          <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Card kana: size 19 → 20px, weight 500 → 400, lineHeight 22 → 24</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">Chip da HomeScreen atualizado para os valores do design system. Não quebra layout — chip tem 68px de altura e sobra espaço de sobra. <code>lineHeight</code> sobe de 22 → 24 para manter número par consistente com o novo size.</p>
+          <div style="margin-top:10px;background:var(--surf2);border-radius:8px;padding:12px;font-size:11px;font-family:monospace;color:var(--textSec);line-height:1.8;">
+            <span style="color:var(--err);">fontSize: 19, fontFamily: FONTS.notoMedium, lineHeight: 22</span><br>
+            <span style="color:var(--ok);">fontSize: 20, fontFamily: FONTS.noto, lineHeight: 24</span>
+          </div>
+          <p style="font-size:11px;color:var(--dim);margin-top:8px;">Arquivo: <code>HomeScreen.js → hs.chipKana</code></p>
+        </div>
+        <span style="font-size:10px;font-weight:700;background:transparent;color:var(--pri);border:1px solid var(--pri);border-radius:6px;padding:3px 8px;white-space:nowrap;">TIPOGRAFIA</span>
+      </div>
+
+      <!-- #02 -->
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:var(--surf);border-radius:12px;border:1px solid var(--border);">
+        <span style="font-size:11px;font-weight:700;color:var(--dim);min-width:28px;padding-top:2px;">#02</span>
+        <div style="flex:1;">
+          <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Adicionar novos tokens ao theme.js</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">Adicionar os tokens aprovados no design system ao arquivo de tema. Não altera nenhuma tela existente — só deixa os tokens disponíveis para uso em telas novas.</p>
+          <div style="margin-top:10px;background:var(--surf2);border-radius:8px;padding:12px;font-size:11px;font-family:monospace;color:var(--textSec);line-height:1.8;">
+            bgDeep: '#06050E',<br>
+            borderFaint: 'rgba(255,255,255,0.08)',<br>
+            track: '#2E2C3F',<br>
+            info: '#4BA3F5',<br>
+            infoFaint: 'rgba(75,163,245,0.12)',
+          </div>
+          <p style="font-size:11px;color:var(--dim);margin-top:8px;">Arquivo: <code>src/theme.js</code> — apenas additive, zero breaking changes</p>
+        </div>
+        <span style="font-size:10px;font-weight:700;background:var(--okFaint);color:var(--ok);border:1px solid var(--ok);border-radius:6px;padding:3px 8px;white-space:nowrap;">CORES</span>
+      </div>
+
+      <!-- #03 -->
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:var(--surf);border-radius:12px;border:1px solid var(--border);">
+        <span style="font-size:11px;font-weight:700;color:var(--dim);min-width:28px;padding-top:2px;">#03</span>
+        <div style="flex:1;">
+          <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Consolidar tokens de superfície nas telas existentes <span style="font-size:11px;font-weight:400;color:var(--muted);">— opcional / baixa prioridade</span></p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">Substituir valores hardcoded por tokens. Não muda visual — só limpa o código. Fazer apenas quando a tela passar por refactor por outro motivo.</p>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;gap:8px;align-items:center;font-size:11px;">
+              <span style="color:var(--err);font-family:monospace;background:var(--errFaint);padding:2px 8px;border-radius:4px;">'#18162B'</span>
+              <span style="color:var(--muted);">→</span>
+              <span style="color:var(--ok);font-family:monospace;background:var(--okFaint);padding:2px 8px;border-radius:4px;">T.surf</span>
+              <span style="color:var(--dim);">HomeScreen.js sheet</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:11px;">
+              <span style="color:var(--err);font-family:monospace;background:var(--errFaint);padding:2px 8px;border-radius:4px;">'#06050E'</span>
+              <span style="color:var(--muted);">→</span>
+              <span style="color:var(--ok);font-family:monospace;background:var(--okFaint);padding:2px 8px;border-radius:4px;">T.bgDeep</span>
+              <span style="color:var(--dim);">AuthScreen.js</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:11px;">
+              <span style="color:var(--err);font-family:monospace;background:var(--errFaint);padding:2px 8px;border-radius:4px;">'rgba(255,255,255,0.08)'</span>
+              <span style="color:var(--muted);">→</span>
+              <span style="color:var(--ok);font-family:monospace;background:var(--okFaint);padding:2px 8px;border-radius:4px;">T.borderFaint</span>
+              <span style="color:var(--dim);">AuthScreen.js socialBtn</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:11px;">
+              <span style="color:var(--err);font-family:monospace;background:var(--errFaint);padding:2px 8px;border-radius:4px;">'#2E2C3F'</span>
+              <span style="color:var(--muted);">→</span>
+              <span style="color:var(--ok);font-family:monospace;background:var(--okFaint);padding:2px 8px;border-radius:4px;">T.track</span>
+              <span style="color:var(--dim);">HomeScreen.js chipBarBg</span>
+            </div>
+          </div>
+        </div>
+        <span style="font-size:10px;font-weight:700;background:var(--warnFaint);color:var(--warn);border:1px solid var(--warn);border-radius:6px;padding:3px 8px;white-space:nowrap;">OPCIONAL</span>
+      </div>
+
+      <!-- #04 -->
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:var(--surf);border-radius:12px;border:1px solid var(--border);">
+        <span style="font-size:11px;font-weight:700;color:var(--dim);min-width:28px;padding-top:2px;">#04</span>
+        <div style="flex:1;">
+          <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Audit e consolidação de border-radius nas telas</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">Substituir todos os valores hardcoded de border-radius pelos novos tokens da escala formal (xs=4 · sm=8 · md=12 · lg=16 · xl=24 · 2xl=32 · pill=999). Percorrer todos os StyleSheets de cada tela e mapear cada valor à escala.</p>
+          <div style="margin-top:10px;background:var(--surf2);border-radius:8px;padding:12px;font-size:11px;font-family:monospace;color:var(--textSec);line-height:2;">
+            <span style="color:var(--err);">borderRadius: 16</span> → <span style="color:var(--ok);">R.md (12)</span> — card padrão<br>
+            <span style="color:var(--err);">borderRadius: 5</span> → <span style="color:var(--ok);">R.xs (4)</span> — checkbox<br>
+            <span style="color:var(--err);">borderRadius: 7, 8, 9, 10</span> → <span style="color:var(--ok);">R.sm (8)</span> — chips, kana chip, profileBtn<br>
+            <span style="color:var(--err);">borderRadius: 12, 14</span> → <span style="color:var(--ok);">R.md (12)</span> — btn, input, mc-btn<br>
+            <span style="color:var(--err);">borderRadius: 16</span> → <span style="color:var(--ok);">R.lg (16)</span> — card<br>
+            <span style="color:var(--err);">borderRadius: 20</span> → <span style="color:var(--ok);">R.xl (24)</span> — formCard<br>
+            <span style="color:var(--err);">borderRadius: 32</span> → <span style="color:var(--ok);">R.2xl (32)</span> — sheet
+          </div>
+          <p style="font-size:11px;color:var(--dim);margin-top:8px;">Escopo: todos os <code>*.js</code> em <code>src/screens/</code> e <code>src/components/</code> — fazer junto com refactor de tela</p>
+        </div>
+        <span style="font-size:10px;font-weight:700;background:var(--warnFaint);color:var(--warn);border:1px solid var(--warn);border-radius:6px;padding:3px 8px;white-space:nowrap;">AUDIT</span>
+      </div>
+
+      <!-- #05 -->
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:var(--surf);border-radius:12px;border:1px solid var(--border);">
+        <span style="font-size:11px;font-weight:700;color:var(--dim);min-width:28px;padding-top:2px;">#05</span>
+        <div style="flex:1;">
+          <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Formato do tempo na ResultsScreen: <code>1m42s</code> → <code>1:42</code></p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">Atualizar o <code>timeStr</code> para usar o formato <code>mm:ss</code> mais legível. Menos de 1 minuto: mostrar como <code>0:42</code>.</p>
+          <div style="margin-top:10px;background:var(--surf2);border-radius:8px;padding:12px;font-size:11px;font-family:monospace;color:var(--textSec);line-height:1.8;">
+            <span style="color:var(--err);">mins > 0 ? `${mins}m${secs}s` : `${secs}s`</span><br>
+            <span style="color:var(--ok);">const timeStr = `${mins}:${secs}`</span>
+          </div>
+          <p style="font-size:11px;color:var(--dim);margin-top:8px;">Arquivo: <code>src/components/Results.jsx</code> — linha 158</p>
+        </div>
+        <span style="font-size:10px;font-weight:700;background:transparent;color:var(--pri);border:1px solid var(--pri);border-radius:6px;padding:3px 8px;white-space:nowrap;">UI</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <div style="border-top:1px solid var(--border);padding-top:32px;margin-top:32px;text-align:center;">
+    <p style="font-size:12px;color:var(--dim);">Tanuki Sensei Design System v1.0 · Gerado em 2026-06-02 · Dark mode only</p>
+    <p style="font-size:11px;color:var(--dim);margin-top:4px;">Extraído de <code>theme.js</code> + auditoria de todos os screens</p>
+  </div>
+

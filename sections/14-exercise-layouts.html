@@ -1,0 +1,856 @@
+  <section id="exercise-layouts">
+    <div class="section-header">
+      <p class="section-label">14 — Padrões</p>
+      <h2 class="section-title">Layouts de Exercício</h2>
+      <p class="section-desc">
+        Todos os padrões visuais de tela de exercício da SessionScreen. Cada layout é um componente em
+        <code style="font-family:monospace;font-size:12px;background:var(--surf2);padding:2px 6px;border-radius:4px;">src/features/exercises/layouts/</code>.
+        Para criar um novo exercício, escolha o layout mais próximo e reutilize o componente.<br>
+        Os mockups abaixo são renderizados em escala 0.72× de 390px — dimensões e espaçamentos idênticos ao app.
+      </p>
+    </div>
+
+    <!-- ── Catálogo ── -->
+    <div class="sub-section">
+      <p class="sub-title">Catálogo</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;white-space:nowrap;">ID</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">Layout</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">Tipos de questão</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">Componente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L1</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Multiple Choice Grid (kana)</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">1, 2, 9, 10</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">MultipleChoiceGridLayout.js</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L2</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Multiple Choice Grid (romaji) <span style="color:var(--dim);font-weight:400;">— variante do L1</span></td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">7, 8, 15</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">MultipleChoiceGridLayout.js</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L3</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Text Input</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">5, 6, 11, 16</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">TextInputLayout.js</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L4</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Impostor Grid</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">12</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">ImpostorGridLayout.js</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L5</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Build Word</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">13, 17</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">BuildWordLayout.js</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L6</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Audio Prompt (listening)</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">15, 16, 17</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">Zona 3 especial + L1/L2/L5</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">L7</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Tracing Canvas</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">14</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">TracingLayout.js</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════ L1 — MC Grid Kana -->
+    <div class="sub-section">
+      <p class="sub-title">L1 — Multiple Choice Grid (kana) · tipos 1, 2, 9, 10</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Grade 2×2 com 4 botões. Prompt kana em 44px NotoJP. Botão correto fica verde com animação bounce; os demais ficam <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">color: dim</code>. Tipos 2 e 10 têm áudio auto-play (botão roxo). Tipos 1 e 9 têm áudio manual (botão surf).
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Idle -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Antes de responder</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <!-- Zone 1 -->
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:40%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">15</span>
+              </div>
+              <!-- Zone 2 -->
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Selecione o romaji</span>
+              </div>
+              <!-- Zone 3 -->
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:44px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">き</span>
+                  </div>
+                  <span style="font-size:14px;color:#7A78A3;margin-top:8px;text-align:center;">hiragana</span>
+                </div>
+              </div>
+              <!-- Zone 4 -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">あ</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">う</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">え</span></div>
+                </div>
+              </div>
+              <!-- Zone 5 -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Correct -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Resposta correta</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <!-- Zone 1 -->
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:55%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;"></span>
+              </div>
+              <!-- Zone 2 -->
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Selecione o romaji</span>
+              </div>
+              <!-- Zone 3 -->
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:44px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">き</span>
+                  </div>
+                  <span style="font-size:14px;color:#7A78A3;margin-top:8px;text-align:center;">hiragana</span>
+                </div>
+              </div>
+              <!-- Zone 4 — correct=き, others dim -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#4E4C6A;font-family:'Noto Sans JP',sans-serif;">あ</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid #3DD691;background:rgba(61,214,145,0.12);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#3DD691;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#4E4C6A;font-family:'Noto Sans JP',sans-serif;">う</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#4E4C6A;font-family:'Noto Sans JP',sans-serif;">え</span></div>
+                </div>
+              </div>
+              <!-- Zone 5 — correct feedback -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="border-radius:12px;border:1.5px solid rgba(61,214,145,0.35);background:rgba(61,214,145,0.12);padding:14px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:18px;color:#3DD691;">✓</span>
+                  <span style="font-weight:700;font-size:17px;color:#3DD691;">Correto!</span>
+                </div>
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">Entendi</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wrong -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Resposta errada</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:55%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;"></span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Selecione o romaji</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:44px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">き</span>
+                  </div>
+                  <span style="font-size:14px;color:#7A78A3;margin-top:8px;text-align:center;">hiragana</span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid #FF6B6B;background:rgba(255,107,107,0.12);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#FF6B6B;font-family:'Noto Sans JP',sans-serif;">あ</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid #3DD691;background:rgba(61,214,145,0.12);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#3DD691;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#4E4C6A;font-family:'Noto Sans JP',sans-serif;">う</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#4E4C6A;font-family:'Noto Sans JP',sans-serif;">え</span></div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="border-radius:12px;border:1.5px solid rgba(255,107,107,0.35);background:rgba(255,107,107,0.12);padding:14px;margin-bottom:12px;">
+                  <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:18px;color:#FF6B6B;">✕</span><span style="font-weight:700;font-size:17px;color:#FF6B6B;">Incorreto!</span></div>
+                  <p style="color:#FF6B6B;font-size:14px;opacity:0.9;margin-top:4px;">Resposta: <strong>ki</strong></p>
+                </div>
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">Entendi</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /phones row -->
+
+      <!-- Specs L1 -->
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Botão (width)</p><p style="font-size:13px;font-weight:700;color:var(--text);">(SW−42)÷2 = 174px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Botão (height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">88px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Gap entre botões</p><p style="font-size:13px;font-weight:700;color:var(--text);">10px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">borderRadius</p><p style="font-size:13px;font-weight:700;color:var(--text);">R.md = 12px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Font kana</p><p style="font-size:13px;font-weight:700;color:var(--text);">26px NotoJP 400</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Font romaji</p><p style="font-size:13px;font-weight:700;color:var(--text);">18px Inter 600</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Cor idle</p><p style="font-size:13px;font-weight:700;color:var(--text);">border: border · bg: transparent</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Cor correto</p><p style="font-size:13px;font-weight:700;color:var(--text);">border+text: ok · bg: okFaint</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Cor errado</p><p style="font-size:13px;font-weight:700;color:var(--text);">border+text: err · bg: errFaint</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Cor outros</p><p style="font-size:13px;font-weight:700;color:var(--text);">text: dim · border: border</p></div>
+      </div>
+    </div><!-- /L1 -->
+
+    <!-- ═══════════════════════════════════ L2 — MC Grid Romaji -->
+    <div class="sub-section">
+      <p class="sub-title">L2 — Multiple Choice Grid (romaji) · tipos 7, 8, 15</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Mesmo componente que L1 (<code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">MultipleChoiceGridLayout</code>). A diferença está nos dados da questão: <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">optKana: false</code> → botões renderizam texto em 18px Inter 600 em vez de kana. Prompt é a palavra em romaji (32px). Tipo 15 mostra botão "Pular" abaixo da grade quando o timer chega a 0.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Idle -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Antes de responder</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:60%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">12</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Selecione a kana</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:700;text-align:center;">mi</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:18px;font-weight:600;color:#E8E6F8;">め</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:18px;font-weight:600;color:#E8E6F8;">み</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:18px;font-weight:600;color:#E8E6F8;">む</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:18px;font-weight:600;color:#E8E6F8;">も</span></div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Diferença do L1</p><p style="font-size:13px;font-weight:700;color:var(--text);">optKana: false → font 18px Inter 600</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Prompt font</p><p style="font-size:13px;font-weight:700;color:var(--text);">32px Inter 700 (romaji/palavra)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Áudio</p><p style="font-size:13px;font-weight:700;color:var(--text);">Auto-play (tipo 2/7/8) → botão roxo</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Tipo 15</p><p style="font-size:13px;font-weight:700;color:var(--text);">Skip abaixo da grade quando timer = 0</p></div>
+      </div>
+    </div><!-- /L2 -->
+
+    <!-- ═══════════════════════════════════ L3 — Text Input -->
+    <div class="sub-section">
+      <p class="sub-title">L3 — Text Input · tipos 5, 6, 11, 16</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Campo de texto (height:52) + botão envio (52×52 roxo). Banner de feedback aparece acima do campo em tentativas erradas. <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">close</code> = amarelo; <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">wrong</code> = vermelho. Tipo 16 mostra "Pular" abaixo quando timer = 0.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Idle -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Digitando</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:35%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">10</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Escreva em romaji</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <span style="font-size:44px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">さ</span>
+                  </div>
+                  <span style="font-size:14px;color:transparent;margin-top:8px;"> </span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;gap:10px;">
+                  <div style="flex:1;height:52px;border-radius:12px;background:#1A1929;border:1px solid rgba(122,120,163,0.28);display:flex;align-items:center;padding:0 16px;">
+                    <span style="font-size:18px;color:#E8E6F8;">sa_</span>
+                  </div>
+                  <div style="width:52px;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Close feedback -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Feedback "quase!"</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:35%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">08</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Escreva em romaji</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <span style="font-size:44px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">さ</span>
+                  </div>
+                  <span style="font-size:14px;color:transparent;margin-top:8px;"> </span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:10px;">
+                <!-- Warn banner -->
+                <div style="border-radius:8px;border:1px solid #F5C542;background:rgba(245,197,66,0.12);padding:12px;text-align:center;">
+                  <span style="color:#F5C542;font-weight:600;font-size:14px;">Quase! tente de novo</span>
+                </div>
+                <div style="display:flex;gap:10px;">
+                  <div style="flex:1;height:52px;border-radius:12px;background:#1A1929;border:1px solid rgba(122,120,163,0.28);display:flex;align-items:center;padding:0 16px;">
+                    <span style="font-size:18px;color:#E8E6F8;">za_</span>
+                  </div>
+                  <div style="width:52px;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">TextInput height</p><p style="font-size:13px;font-weight:700;color:var(--text);">52px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">TextInput font</p><p style="font-size:13px;font-weight:700;color:var(--text);">18px · bg: surf · border: border</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Submit btn</p><p style="font-size:13px;font-weight:700;color:var(--text);">52×52px · R.md · bg: pri</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Gap row</p><p style="font-size:13px;font-weight:700;color:var(--text);">10px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Banner borderRadius</p><p style="font-size:13px;font-weight:700;color:var(--text);">R.sm = 8px · padding:12px · mB:10px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Banner "quase"</p><p style="font-size:13px;font-weight:700;color:var(--text);">border+text: warn · bg: warnFaint</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Banner "errado"</p><p style="font-size:13px;font-weight:700;color:var(--text);">border+text: err · bg: errFaint</p></div>
+      </div>
+    </div><!-- /L3 -->
+
+    <!-- ═══════════════════════════════════ L4 — Impostor Grid -->
+    <div class="sub-section">
+      <p class="sub-title">L4 — Impostor Grid · tipo 12</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Grade 2×2 de tiles grandes com kana 52px. Um não pertence à família apresentada. Zona 3 é reduzida (<code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">minHeight:24</code>, sem prompt). Tap errado dispara shake horizontal. Após responder, romaji faz fade-in abaixo de cada kana via <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">subtitleAnim</code>.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Idle -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Antes de responder</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:70%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">20</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Encontre o impostor</span>
+              </div>
+              <!-- Zone 3 reduzida para tipo 12 -->
+              <div style="min-height:24px;padding-vertical:0;flex-shrink:0;"></div>
+              <!-- Zone 4 -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#E8E6F8;">か</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#E8E6F8;">た</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#E8E6F8;">き</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#E8E6F8;">く</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Answered (correct impostor found) -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Resposta + romaji revelado</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:80%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;"></span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Encontre o impostor</span>
+              </div>
+              <div style="min-height:24px;flex-shrink:0;"></div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#4E4C6A;">か</span>
+                    <span style="font-size:14px;font-weight:600;letter-spacing:0.3px;color:#4E4C6A;position:absolute;bottom:14px;">ka</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid #3DD691;background:rgba(61,214,145,0.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#3DD691;">た</span>
+                    <span style="font-size:14px;font-weight:600;letter-spacing:0.3px;color:#3DD691;position:absolute;bottom:14px;">ta ✓</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#4E4C6A;">き</span>
+                    <span style="font-size:14px;font-weight:600;letter-spacing:0.3px;color:#4E4C6A;position:absolute;bottom:14px;">ki</span>
+                  </div>
+                  <div style="width:173px;height:148px;border-radius:16px;border:1.5px solid rgba(122,120,163,0.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;">
+                    <span style="font-size:52px;line-height:56px;font-family:'Noto Sans JP',sans-serif;color:#4E4C6A;">く</span>
+                    <span style="font-size:14px;font-weight:600;letter-spacing:0.3px;color:#4E4C6A;position:absolute;bottom:14px;">ku</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="border-radius:12px;border:1.5px solid rgba(61,214,145,0.35);background:rgba(61,214,145,0.12);padding:14px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:18px;color:#3DD691;">✓</span>
+                  <span style="font-weight:700;font-size:17px;color:#3DD691;">Correto!</span>
+                </div>
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">Entendi</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Tile (width)</p><p style="font-size:13px;font-weight:700;color:var(--text);">(SW−44)÷2 = 173px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Tile (height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">148px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Gap</p><p style="font-size:13px;font-weight:700;color:var(--text);">12px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">borderRadius</p><p style="font-size:13px;font-weight:700;color:var(--text);">R.lg = 16px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Kana font</p><p style="font-size:13px;font-weight:700;color:var(--text);">52px NotoJP 400 · lineHeight 56</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Romaji (pós-resposta)</p><p style="font-size:13px;font-weight:700;color:var(--text);">14px 600 · absolute bottom:14px · fade-in</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Zona 3</p><p style="font-size:13px;font-weight:700;color:var(--text);">minHeight:24 · sem prompt · paddingVertical:0</p></div>
+      </div>
+    </div><!-- /L4 -->
+
+    <!-- ═══════════════════════════════════ L5 — Build Word -->
+    <div class="sub-section">
+      <p class="sub-title">L5 — Build Word · tipos 13, 17</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Linha de N slots de resposta + banco de tiles em grade 4 colunas. Tap no tile → primeiro slot vazio; tap no slot preenchido → devolve ao banco. Botão OK no feedbackBar valida quando todos os slots estão preenchidos. Shake horizontal nos slots ao errar.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Idle — slots parcialmente preenchidos -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Montando a palavra</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:50%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">18</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Forme a palavra</span>
+              </div>
+              <!-- Zone 3 -->
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:700;text-align:center;">megane</span>
+                  </div>
+                  <span style="font-size:14px;color:#7A78A3;margin-top:8px;text-align:center;">óculos</span>
+                </div>
+              </div>
+              <!-- Zone 4 — slots + bank -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;align-items:center;">
+                <!-- Slots row: minHeight:92, gap:8, marginBottom:32 -->
+                <div style="display:flex;gap:8px;min-height:92px;align-items:center;margin-bottom:32px;justify-content:center;">
+                  <!-- Filled slot -->
+                  <div style="width:74px;height:64px;border-radius:8px;background:#211F32;border:1.5px solid #7B72F0;display:flex;align-items:center;justify-content:center;">
+                    <span style="font-size:34px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;font-weight:500;">め</span>
+                  </div>
+                  <!-- Empty slot -->
+                  <div style="width:74px;height:64px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;">
+                    <div style="width:22px;height:3px;border-radius:999px;background:#4E4C6A;"></div>
+                  </div>
+                  <!-- Empty slot -->
+                  <div style="width:74px;height:64px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;">
+                    <div style="width:22px;height:3px;border-radius:999px;background:#4E4C6A;"></div>
+                  </div>
+                </div>
+                <!-- Bank: max-width 316, 4 cols, margin:4 each tile -->
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;max-width:316px;">
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;opacity:0.2;"><span style="font-size:25px;color:transparent;font-family:'Noto Sans JP',sans-serif;">め</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">が</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">ね</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">さ</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">み</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">す</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">こ</span></div>
+                </div>
+              </div>
+              <!-- Zone 5 — OK btn disabled (slots incompletos) -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="width:100%;height:52px;border-radius:12px;background:#211F32;display:flex;align-items:center;justify-content:center;"><span style="color:#7A78A3;font-weight:700;font-size:16px;">OK</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- All slots filled — OK enabled -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Slots completos — OK ativo</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:50%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">14</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Forme a palavra</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:700;text-align:center;">megane</span>
+                  </div>
+                  <span style="font-size:14px;color:#7A78A3;margin-top:8px;text-align:center;">óculos</span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;align-items:center;">
+                <div style="display:flex;gap:8px;min-height:92px;align-items:center;margin-bottom:32px;justify-content:center;">
+                  <div style="width:74px;height:64px;border-radius:8px;background:#211F32;border:1.5px solid #7B72F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:34px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;font-weight:500;">め</span></div>
+                  <div style="width:74px;height:64px;border-radius:8px;background:#211F32;border:1.5px solid #7B72F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:34px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;font-weight:500;">が</span></div>
+                  <div style="width:74px;height:64px;border-radius:8px;background:#211F32;border:1.5px solid #7B72F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:34px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;font-weight:500;">ね</span></div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;max-width:316px;">
+                  <div style="width:64px;height:56px;border-radius:8px;background:#1A1929;border:0;margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:transparent;font-family:'Noto Sans JP',sans-serif;">め</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:#1A1929;border:0;margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:transparent;font-family:'Noto Sans JP',sans-serif;">が</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:#1A1929;border:0;margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:transparent;font-family:'Noto Sans JP',sans-serif;">ね</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">さ</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">み</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">す</span></div>
+                  <div style="width:64px;height:56px;border-radius:8px;background:rgba(34,31,53,0.62);border:1.5px solid rgba(122,120,163,0.28);margin:4px;display:flex;align-items:center;justify-content:center;"><span style="font-size:25px;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">こ</span></div>
+                </div>
+              </div>
+              <!-- Zone 5 — OK ativo -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;box-shadow:0 6px 12px rgba(123,114,240,0.5);display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">OK</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Slot (width × height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">74 × 64px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Slot gap</p><p style="font-size:13px;font-weight:700;color:var(--text);">8px · marginBottom: 32px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Slot preenchido</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: surf2 · border 1.5px pri</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Slot vazio</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: rgba(255,255,255,0.05) · traço dim</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Slot font</p><p style="font-size:13px;font-weight:700;color:var(--text);">34px NotoJP 500</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Tile (width × height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">64 × 56px · margin:4 cada</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Tile font</p><p style="font-size:13px;font-weight:700;color:var(--text);">25px NotoJP 500</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Tile usado</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: surf · border: 0 · color: transparent</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Bank maxWidth</p><p style="font-size:13px;font-weight:700;color:var(--text);">316px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">OK desativado</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: surf2 · color: muted · sem shadow</p></div>
+      </div>
+    </div><!-- /L5 -->
+
+    <!-- ═══════════════════════════════════ L6 — Audio Prompt -->
+    <div class="sub-section">
+      <p class="sub-title">L6 — Audio Prompt (listening) · tipos 15, 16, 17</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Zona 3 substituída por um botão de áudio grande centralizado (80×80px, bg <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">priFaint</code>, ícone <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">volume-max 40px pri</code>). Zona 4 varia por subtipo: tipo 15 → L1 MC, tipo 16 → L3 Text Input, tipo 17 → L5 Build Word. Todos têm "Não posso ouvir agora" no feedbackBar.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Tipo 15 — MC com audio -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Tipo 15 — áudio + MC</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:45%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">20</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Selecione o que ouviu</span>
+              </div>
+              <!-- Zone 3 — audioPromptArea height:140 -->
+              <div style="height:140px;display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column;flex-shrink:0;">
+                <div style="width:80px;height:80px;border-radius:24px;background:rgba(123,114,240,0.12);display:flex;align-items:center;justify-content:center;">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B72F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                </div>
+              </div>
+              <!-- Zone 4 -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">あ</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">き</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">さ</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;"><span style="font-size:26px;font-weight:400;color:#E8E6F8;font-family:'Noto Sans JP',sans-serif;">に</span></div>
+                </div>
+              </div>
+              <!-- Zone 5 — "Não posso ouvir agora" -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="padding:8px;margin-bottom:4px;text-align:center;">
+                  <span style="font-size:16px;color:#7A78A3;">Não posso ouvir agora</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Audio btn (width × height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">80 × 80px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Audio btn borderRadius</p><p style="font-size:13px;font-weight:700;color:var(--text);">R.xl = 24px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Audio btn bg</p><p style="font-size:13px;font-weight:700;color:var(--text);">priFaint = rgba(123,114,240,0.12)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Ícone</p><p style="font-size:13px;font-weight:700;color:var(--text);">volume-max 40px · color: pri</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Zona 3 height</p><p style="font-size:13px;font-weight:700;color:var(--text);">140px (audioPromptArea)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Zona 4</p><p style="font-size:13px;font-weight:700;color:var(--text);">tipo 15 → L1 · tipo 16 → L3 · tipo 17 → L5</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Rodapé</p><p style="font-size:13px;font-weight:700;color:var(--text);">"Não posso ouvir agora" (skipText muted 16px)</p></div>
+      </div>
+    </div><!-- /L6 -->
+
+    <!-- ═══════════════════════════════════ L7 — Tracing Canvas -->
+    <div class="sub-section">
+      <p class="sub-title">L7 — Tracing Canvas · tipo 14</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Canvas SVG quadrado (width:100%, aspectRatio:1). Toolbar separada acima com o botão olho (toggle guia). Os guias são SVG paths reais do kana, não texto — stroke ativo em <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">rgba(232,230,248,0.38)</code>, inativo em <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">0.22</code>. Pontos roxos marcam o início de cada traço. O botão de reset está comentado no código (não aparece na UI).
+        <br><span style="color:#FF6B6B;font-weight:600;">⚠ TracingCanvasNative usa useDrawCanvas.ios.js — NUNCA modificar.</span>
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Modo guiado -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Modo guiado — antes de começar</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <!-- Zone 1 -->
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:30%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+              </div>
+              <!-- Zone 2 -->
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Trace o kana</span>
+              </div>
+              <!-- Zone 3 — tipo 14: height:96 paddingBottom:6 -->
+              <div style="padding:12px 16px 6px;height:96px;overflow:hidden;flex-shrink:0;">
+                <div style="padding-top:24px;width:100%;display:flex;align-items:center;justify-content:center;position:relative;">
+                  <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  </div>
+                  <span style="font-size:32px;color:#E8E6F8;font-weight:700;">ka</span>
+                </div>
+              </div>
+              <!-- Zone 4 — TracingCanvasNative: toolbar + board -->
+              <div style="padding:12px 16px 0;flex:1;display:flex;flex-direction:column;">
+                <!-- Toolbar: borderRadius top only, paddingH:10 paddingV:8 -->
+                <div style="width:100%;background:#151421;border-radius:20px 20px 0 0;padding:8px 10px;display:flex;align-items:center;flex-shrink:0;">
+                  <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8E6F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.42 12.71C2.28 12.5 2.22 12.39 2.18 12.22c-.03-.12-.03-.32 0-.45.04-.17.11-.27.24-.49C3.55 9.5 6.9 5 12 5s8.45 4.5 9.58 6.29c.14.22.21.32.24.49.03.12.03.32 0 .45-.04.17-.11.27-.24.49C20.45 14.5 17.11 19 12 19s-8.45-4.5-9.58-6.29z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                </div>
+                <!-- Board: aspectRatio:1, borderRadius bottom only -->
+                <div style="width:100%;aspect-ratio:1/1;background:#151421;border-radius:0 0 20px 20px;overflow:hidden;flex-shrink:0;">
+                  <svg width="100%" height="100%" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Crosshairs (opacity 0.55 wrapper) -->
+                    <g opacity="0.55">
+                      <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="rgba(255,255,255,0.14)" stroke-width="0.35"/>
+                      <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="rgba(255,255,255,0.14)" stroke-width="0.35"/>
+                      <line x1="0" y1="0" x2="109" y2="109" stroke="rgba(255,255,255,0.08)" stroke-width="0.35"/>
+                      <line x1="109" y1="0" x2="0" y2="109" stroke="rgba(255,255,255,0.08)" stroke-width="0.35"/>
+                    </g>
+                    <!-- Guide stroke 1 (active — 0.38) -->
+                    <path d="M24.62,38.62c1.88,1.62,4.65,2.33,8.62,1c25.5-8.5,29.5-4.13,29.5,7.62c0,9.38-1.24,17.46-4.25,25.25c-7.62,19.76-10.87,17.39-16.12,10.89" fill="none" stroke="rgba(232,230,248,0.38)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Guide stroke 2 (inactive — 0.22) -->
+                    <path d="M48.5,17.5c1,1.38,1.29,4.7,0.5,7.12c-5,15.25-18.02,40.93-19.62,43.88c-3.12,5.75-6.38,11.88-9.38,16.25" fill="none" stroke="rgba(232,230,248,0.22)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Dot 1 — active (opacity 1) -->
+                    <circle cx="24.62" cy="38.62" r="4.4" fill="#7B72F0" stroke="#151421" stroke-width="1.2"/>
+                    <text x="24.62" y="38.82" fill="#fff" font-size="4" font-weight="800" text-anchor="middle" dominant-baseline="middle">1</text>
+                    <!-- Dot 2 — inactive (opacity 0.52) -->
+                    <g opacity="0.52">
+                      <circle cx="48.5" cy="17.5" r="4.4" fill="#7B72F0" stroke="#151421" stroke-width="1.2"/>
+                      <text x="48.5" y="17.7" fill="#fff" font-size="4" font-weight="800" text-anchor="middle" dominant-baseline="middle">2</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mid-drawing -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Traçando — traço 1 em andamento</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:30%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Trace o kana</span>
+              </div>
+              <div style="padding:12px 16px 6px;height:96px;overflow:hidden;flex-shrink:0;">
+                <div style="padding-top:24px;width:100%;display:flex;align-items:center;justify-content:center;position:relative;">
+                  <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  </div>
+                  <span style="font-size:32px;color:#E8E6F8;font-weight:700;">ka</span>
+                </div>
+              </div>
+              <div style="padding:12px 16px 0;flex:1;display:flex;flex-direction:column;">
+                <div style="width:100%;background:#151421;border-radius:20px 20px 0 0;padding:8px 10px;display:flex;align-items:center;flex-shrink:0;">
+                  <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8E6F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.42 12.71C2.28 12.5 2.22 12.39 2.18 12.22c-.03-.12-.03-.32 0-.45.04-.17.11-.27.24-.49C3.55 9.5 6.9 5 12 5s8.45 4.5 9.58 6.29c.14.22.21.32.24.49.03.12.03.32 0 .45-.04.17-.11.27-.24.49C20.45 14.5 17.11 19 12 19s-8.45-4.5-9.58-6.29z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                </div>
+                <div style="width:100%;aspect-ratio:1/1;background:#151421;border-radius:0 0 20px 20px;overflow:hidden;flex-shrink:0;">
+                  <svg width="100%" height="100%" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.55">
+                      <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="rgba(255,255,255,0.14)" stroke-width="0.35"/>
+                      <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="rgba(255,255,255,0.14)" stroke-width="0.35"/>
+                      <line x1="0" y1="0" x2="109" y2="109" stroke="rgba(255,255,255,0.08)" stroke-width="0.35"/>
+                      <line x1="109" y1="0" x2="0" y2="109" stroke="rgba(255,255,255,0.08)" stroke-width="0.35"/>
+                    </g>
+                    <!-- Guide stroke 1 (active) -->
+                    <path d="M24.62,38.62c1.88,1.62,4.65,2.33,8.62,1c25.5-8.5,29.5-4.13,29.5,7.62c0,9.38-1.24,17.46-4.25,25.25c-7.62,19.76-10.87,17.39-16.12,10.89" fill="none" stroke="rgba(232,230,248,0.38)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Guide stroke 2 -->
+                    <path d="M48.5,17.5c1,1.38,1.29,4.7,0.5,7.12c-5,15.25-18.02,40.93-19.62,43.88c-3.12,5.75-6.38,11.88-9.38,16.25" fill="none" stroke="rgba(232,230,248,0.22)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Raw finger trail (white polyline — raw points while drawing) -->
+                    <polyline points="24.62,38.62 27,37 32,35 40,34 50,36 58,42 62,50 60,60 54,68 46,74 38,77" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Dot 1 — faded (user started stroke) -->
+                    <g opacity="0.28">
+                      <circle cx="24.62" cy="38.62" r="4.4" fill="#7B72F0" stroke="#151421" stroke-width="1.2"/>
+                      <text x="24.62" y="38.82" fill="#fff" font-size="4" font-weight="800" text-anchor="middle" dominant-baseline="middle">1</text>
+                    </g>
+                    <!-- Dot 2 -->
+                    <g opacity="0.52">
+                      <circle cx="48.5" cy="17.5" r="4.4" fill="#7B72F0" stroke="#151421" stroke-width="1.2"/>
+                      <text x="48.5" y="17.7" fill="#fff" font-size="4" font-weight="800" text-anchor="middle" dominant-baseline="middle">2</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Board (width)</p><p style="font-size:13px;font-weight:700;color:var(--text);">100% de zone 4 = 358px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Board (height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">aspectRatio:1 → 358px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Background</p><p style="font-size:13px;font-weight:700;color:var(--text);">#151421 (toolbar + board, iguais)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Toolbar borderRadius</p><p style="font-size:13px;font-weight:700;color:var(--text);">20px top only · Board: 20px bottom only</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Toolbar</p><p style="font-size:13px;font-weight:700;color:var(--text);">só botão olho (reset comentado no código)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">SVG viewBox</p><p style="font-size:13px;font-weight:700;color:var(--text);">0 0 109 109</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Guide stroke ativo</p><p style="font-size:13px;font-weight:700;color:var(--text);">rgba(232,230,248,0.38) · strokeWidth:5</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Guide stroke inativo</p><p style="font-size:13px;font-weight:700;color:var(--text);">rgba(232,230,248,0.22) · strokeWidth:5</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Trail do dedo</p><p style="font-size:13px;font-weight:700;color:var(--text);">#FFFFFF · strokeWidth:5 · limpa ao soltar</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Pontos início</p><p style="font-size:13px;font-weight:700;color:var(--text);">fill:#7B72F0 · r:4.4 · stroke:#151421 1.2</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Zona 3 height</p><p style="font-size:13px;font-weight:700;color:var(--text);">96px · paddingBottom:6 (tipo 14 específico)</p></div>
+      </div>
+    </div><!-- /L7 -->
+
+  </section>

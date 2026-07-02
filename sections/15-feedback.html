@@ -1,0 +1,57 @@
+  <section id="feedback">
+    <div class="section-header">
+      <p class="section-label">15 — Padrões</p>
+      <h2 class="section-title">Feedback</h2>
+      <p class="section-desc">Banners de resultado da questão (correto/errado) e avisos de tentativa.</p>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Feedback de resposta</p>
+      <div style="max-width:420px;display:flex;flex-direction:column;gap:10px;">
+
+        <!-- Correto -->
+        <div style="border-radius:14px;background:rgba(61,214,140,0.10);border:1.5px solid rgba(61,214,140,0.35);padding:14px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-weight:700;font-size:17px;color:var(--ok);">Correto!</span>
+          </div>
+        </div>
+
+        <!-- Incorreto + flag -->
+        <div style="border-radius:14px;background:rgba(255,107,107,0.10);border:1.5px solid rgba(255,107,107,0.35);padding:14px 16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--err)" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span style="font-weight:700;font-size:17px;color:var(--err);">Incorreto</span>
+            </div>
+            <button style="background:none;border:none;cursor:pointer;padding:6px;color:var(--err);opacity:0.45;display:flex;align-items:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            </button>
+          </div>
+          <p style="font-size:14px;color:var(--err);margin-top:2px;margin-left:26px;opacity:0.9;">A resposta era: <strong>a</strong></p>
+        </div>
+
+        <!-- Quase (warn) -->
+        <div style="border-radius:14px;background:rgba(245,197,66,0.08);border:1.5px solid rgba(245,197,66,0.35);padding:14px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+            <span style="font-weight:700;font-size:17px;color:var(--warn);">Quase!</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Avisos de tentativa</p>
+      <div style="max-width:360px;display:flex;flex-direction:column;gap:8px;">
+        <div class="try-banner close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          Quase! Tente mais uma vez
+        </div>
+        <div class="try-banner wrong">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Resposta incorreta
+        </div>
+      </div>
+    </div>
+  </section>
+

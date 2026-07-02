@@ -1,0 +1,31 @@
+  <section id="sheets">
+    <div class="section-header">
+      <p class="section-label">16 — Padrões</p>
+      <h2 class="section-title">Bottom Sheet</h2>
+      <p class="section-desc">Modal bottom sheet. bg: surf (não bgDeep). Radius 32px top. Handle de 36×4px.</p>
+    </div>
+    <div class="sub-section">
+      <div style="display:flex;justify-content:center;">
+        <div class="bottom-sheet">
+          <div class="sheet-handle"></div>
+          <p class="sheet-label">Nível de dificuldade</p>
+          <div class="diff-row">
+            <div class="diff-btn active"><p class="diff-text">Fácil</p></div>
+            <div class="diff-btn"><p class="diff-text">Difícil</p><p style="font-size:11px;color:var(--muted);margin-top:2px;">mín. 10 kanas</p></div>
+          </div>
+          <button class="btn btn-lg btn-primary" style="width:100%;border-radius:12px;">Começar sessão</button>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:11px;color:var(--muted);text-align:center;">bg: <code>surf</code> · radius 32px top · handle: 36×4px dim · padding 20px 20px 36px</p>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Empty state (futuro)</p>
+      <div style="max-width:320px;text-align:center;padding:40px 24px;background:var(--surf);border-radius:20px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <p style="font-family:var(--font-noto);font-size:48px;line-height:1;">漢</p>
+        <p style="font-size:18px;font-weight:700;color:var(--text);">Em breve</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">Kanji ainda não disponível. Continue praticando hiragana e katakana!</p>
+      </div>
+      <p style="margin-top:12px;font-size:11px;color:var(--muted);">Componente standalone — não acoplado ao bottom sheet</p>
+    </div>
+  </section>
+

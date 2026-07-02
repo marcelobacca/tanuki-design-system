@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanuki Sensei — Design System v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ SIDEBAR -->
+<aside id="sidebar">
+  <div class="sidebar-logo">
+    <span class="jp">たぬき</span>
+    <span class="en">TANUKI SENSEI</span>
+    <span class="badge">DS v1.0</span>
+  </div>
+  <nav>
+    <span class="nav-group-label">Fundação</span>
+    <a href="#colors" class="active"><span class="nav-icon">🎨</span> Cores</a>
+    <a href="#typography"><span class="nav-icon">Aa</span> Tipografia</a>
+    <a href="#spacing"><span class="nav-icon">↔</span> Espaçamento</a>
+    <a href="#icons"><span class="nav-icon">⬡</span> Ícones</a>
+
+    <span class="nav-group-label">Componentes</span>
+    <a href="#buttons"><span class="nav-icon">◉</span> Botões</a>
+    <a href="#inputs"><span class="nav-icon">□</span> Inputs</a>
+    <a href="#chips"><span class="nav-icon">◈</span> Chips</a>
+    <a href="#cards"><span class="nav-icon">▣</span> Cards</a>
+    <a href="#badges"><span class="nav-icon">◈</span> Badges</a>
+    <a href="#progress"><span class="nav-icon">▬</span> Progress</a>
+    <a href="#tabs"><span class="nav-icon">⊟</span> Tabs</a>
+    <a href="#navigation"><span class="nav-icon">⊞</span> Nav Bar</a>
+    <a href="#toast"><span class="nav-icon">◷</span> Toast</a>
+    <a href="#skeleton"><span class="nav-icon">░</span> Skeleton</a>
+    <a href="#tooltip"><span class="nav-icon">◌</span> Tooltip</a>
+
+    <span class="nav-group-label">Padrões</span>
+    <a href="#session"><span class="nav-icon">◎</span> Sessão</a>
+    <a href="#exercise-layouts"><span class="nav-icon">◫</span> Layouts</a>
+    <a href="#numerals"><span class="nav-icon">数</span> Numerais</a>
+    <a href="#feedback"><span class="nav-icon">✓</span> Feedback</a>
+    <a href="#sheets"><span class="nav-icon">↑</span> Bottom Sheet</a>
+
+    <span class="nav-group-label">Auditoria</span>
+    <a href="#missing"><span class="nav-icon">⚠</span> Gaps</a>
+  </nav>
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════ MAIN -->
+<main>
+
+  <!-- ── HEADER ── -->
+  <div style="margin-bottom:60px;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">DESIGN SYSTEM</p>
+    <h1 style="font-size:40px;font-weight:800;color:var(--text);margin-bottom:8px;">Tanuki Sensei</h1>
+    <p style="font-size:15px;color:var(--muted);max-width:540px;line-height:1.7;">
+      Referência visual completa para o app de prática de hiragana/katakana. Dark mode only.
+      Stack: React Native + Expo. Fontes: Inter (UI), Noto Sans JP (kana).
+    </p>
+    <div style="display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;">
+      <span class="badge badge-ok">Dark mode only</span>
+      <span class="badge badge-primary">Inter + Noto Sans JP</span>
+      <span class="badge badge-muted">React Native</span>
+      <span class="badge badge-muted">iOS + Android</span>
+    </div>
+  </div>
+
+  <!-- sections injected here by scripts.js -->
+  <div id="sections-root"></div>
+
+  <!-- ── Footer ── -->
+  <div style="border-top:1px solid var(--border);padding-top:32px;margin-top:32px;text-align:center;">
+    <p style="font-size:12px;color:var(--dim);">Tanuki Sensei Design System v1.0 · Gerado em 2026-06-02 · Dark mode only</p>
+    <p style="font-size:11px;color:var(--dim);margin-top:4px;">Extraído de <code>theme.js</code> + auditoria de todos os screens</p>
+  </div>
+
+</main>
+
+<script src="scripts.js"></script>
+</body>
+</html>

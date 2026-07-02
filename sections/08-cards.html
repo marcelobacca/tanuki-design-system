@@ -1,0 +1,43 @@
+  <section id="cards">
+    <div class="section-header">
+      <p class="section-label">08 — Componentes</p>
+      <h2 class="section-title">Cards</h2>
+      <p class="section-desc">Containers de conteúdo. Variantes: padrão, compacto, stat e action row.</p>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Variantes</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;">
+
+        <div>
+          <p style="font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Padrão</p>
+          <div class="card">
+            <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">Missão do dia</p>
+            <p style="font-size:13px;color:var(--muted);">Pratique 20 kanas hoje para manter sua sequência.</p>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin-top:8px;">bg: <code>surf2</code> · padding: 20px · radius: R.md 12px<br>Uso: ProfileScreen, MissionsScreen, cards principais</p>
+        </div>
+
+        <div>
+          <p style="font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Compacto</p>
+          <div class="card card-sm">
+            <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Hiragana básico</p>
+            <p style="font-size:12px;color:var(--muted);">46 kanas · 12 dominados</p>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin-top:8px;">bg: <code>surf2</code> · padding: 14px 16px · radius: R.md 12px<br>Uso: listas, itens aninhados, painéis secundários</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Stat Cards (ResultsScreen)</p>
+      <div style="display:flex;flex-direction:row;gap:16px;max-width:420px;"><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid var(--border);border-radius:12px;padding:16px clamp(8px,3%,16px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H18M6 12H2M12 6V2M12 22V18M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:flex;flex-direction:column;align-items:center;gap:8px;"><span style="font-weight:700;font-size:16px;color:#3DD691;line-height:1;">87%</span><span style="font-weight:400;font-size:14px;color:var(--muted);line-height:1;">Precisão</span></div></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid var(--border);border-radius:12px;padding:16px clamp(8px,3%,16px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:flex;flex-direction:column;align-items:center;gap:8px;"><span style="font-weight:700;font-size:16px;color:#E8E6F8;line-height:1;">1:42</span><span style="font-weight:400;font-size:14px;color:var(--muted);line-height:1;">Tempo</span></div></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid var(--border);border-radius:12px;padding:16px clamp(8px,3%,16px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.09344 12.6879C3.74463 13.1064 3.57023 13.3157 3.56756 13.4925C3.56524 13.6461 3.63372 13.7923 3.75324 13.8889C3.89073 14 4.16316 14 4.70802 14H12L11 22L19.9065 11.3121C20.2553 10.8936 20.4297 10.6843 20.4324 10.5075C20.4347 10.3539 20.3663 10.2077 20.2467 10.1111C20.1092 10 19.8368 10 19.292 10H12L13 2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:flex;flex-direction:column;align-items:center;gap:8px;"><span style="font-weight:700;font-size:16px;color:#E8E6F8;line-height:1;">+24 xp</span><span style="font-weight:400;font-size:14px;color:var(--muted);line-height:1;">120 / 200</span></div></div></div>
+      <p style="margin-top:10px;font-size:11px;color:var(--muted);">3 cards · flex:1 · padding 16px <code>clamp(8px,3%,16px)</code> H · radius R.md 12px<br>Valor: <code>16px / Bold 700</code> · Label: <code>14px / Regular 400 muted</code> · valor colorido quando semântico</p>
+    </div>
+    <div class="sub-section-REPLACED"><!-- placeholder -->
+      <div style="max-width:360px;display:flex;flex-direction:column;gap:8px;">
+        <div class="action-row"><div class="action-img"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pri)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5L19 2L20 4L22 5L19 8H16ZM16 8L12 11.9999M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p class="action-title">Missões</p><p class="action-sub">3 ativas · 1 concluída</p></div><span class="action-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="action-row"><div class="action-img"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pri)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20V14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p class="action-title">Estatísticas</p><p class="action-sub">Ver progresso detalhado</p></div><span class="action-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+      </div>
+    </div>
+  </section>
+

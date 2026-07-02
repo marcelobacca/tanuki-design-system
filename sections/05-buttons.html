@@ -1,0 +1,108 @@
+  <section id="buttons">
+    <div class="section-header">
+      <p class="section-label">05 — Componentes</p>
+      <h2 class="section-title">Botões</h2>
+      <p class="section-desc">3 variantes · 3 tamanhos · 3 estados · variações de ícone. Radius: md (12px) para lg/md, sm (8px) para sm.</p>
+    </div>
+
+    <!-- Spec table -->
+    <div class="sub-section">
+      <p class="sub-title">Escala de tamanhos</p>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);">
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Token</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Altura</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Font size</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Peso</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Padding H</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Radius</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 12px;"><strong style="color:var(--text);">lg</strong></td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">54px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">16px</td>
+            <td style="padding:10px 12px;color:var(--textSec);">SemiBold 600</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">24px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">R.md — 12px</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 12px;"><strong style="color:var(--text);">md</strong></td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">44px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">14px</td>
+            <td style="padding:10px 12px;color:var(--textSec);">SemiBold 600</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">18px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">R.md — 12px</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;"><strong style="color:var(--text);">sm</strong></td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">36px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">12px</td>
+            <td style="padding:10px 12px;color:var(--textSec);">Medium 500</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">14px</td>
+            <td style="padding:10px 12px;font-family:monospace;color:var(--textSec);">R.sm — 8px</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Variant tabs -->
+    <div class="btn-variant-tabs">
+      <button class="btn-variant-tab active" onclick="showBtnTab('primary',this)">Primário</button>
+      <button class="btn-variant-tab" onclick="showBtnTab('secondary',this)">Secundário</button>
+      <button class="btn-variant-tab" onclick="showBtnTab('tertiary',this)">Terciário</button>
+    </div>
+
+    <!-- PRIMARY -->
+    <div id="btntab-primary" class="btn-variant-content active">
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6;">bg: <code>--pri</code> · color: <code>#fff</code> · shadow: pri 45% y4 blur20 · uso: CTAs principais, ação afirmativa</p>
+      <div class="btn-matrix"><div class="btn-matrix-header"><div>Estado</div><div>LG — 54px / 16px</div><div>MD — 44px / 14px</div><div>SM — 36px / 12px</div></div><div class="btn-matrix-row"><div>Normal</div><div><button class="btn btn-lg btn-primary">Continuar</button></div><div><button class="btn btn-md btn-primary">Continuar</button></div><div><button class="btn btn-sm btn-primary">OK</button></div></div><div class="btn-matrix-row"><div>Loading</div><div><button class="btn btn-lg btn-primary btn-loading"><span class="btn-spinner"></span> Enviando</button></div><div><button class="btn btn-md btn-primary btn-loading"><span class="btn-spinner"></span> Aguarde</button></div><div><button class="btn btn-sm btn-primary btn-loading"><span class="btn-spinner"></span></button></div></div><div class="btn-matrix-row"><div>Disabled</div><div><button class="btn btn-lg btn-primary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-md btn-primary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-sm btn-primary btn-disabled" disabled>OK</button></div></div></div>
+      <div style="margin-top:20px;"><p style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Variações de ícone</p><div class="btn-icon-row"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-primary">Continuar</button><span class="btn-icon-label">Sem ícone</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Adicionar</button><span class="btn-icon-label">Ícone esquerda</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-primary">Próximo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone direita</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Iniciar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone ambos</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-icon-only btn-primary" title="Adicionar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button><span class="btn-icon-label">Icon-only</span></div></div></div>
+    </div>
+
+    <!-- SECONDARY -->
+    <div id="btntab-secondary" class="btn-variant-content">
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6;">bg: <code>surf2</code> · border: <code>--border</code> · hover: border + text <code>pri</code> · uso: ações auxiliares, cancelar, pular</p>
+      <div class="btn-matrix"><div class="btn-matrix-header"><div>Estado</div><div>LG — 54px / 16px</div><div>MD — 44px / 14px</div><div>SM — 36px / 12px</div></div><div class="btn-matrix-row"><div>Normal</div><div><button class="btn btn-lg btn-secondary">Continuar</button></div><div><button class="btn btn-md btn-secondary">Continuar</button></div><div><button class="btn btn-sm btn-secondary">OK</button></div></div><div class="btn-matrix-row"><div>Loading</div><div><button class="btn btn-lg btn-secondary btn-loading"><span class="btn-spinner"></span> Enviando</button></div><div><button class="btn btn-md btn-secondary btn-loading"><span class="btn-spinner"></span> Aguarde</button></div><div><button class="btn btn-sm btn-secondary btn-loading"><span class="btn-spinner"></span></button></div></div><div class="btn-matrix-row"><div>Disabled</div><div><button class="btn btn-lg btn-secondary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-md btn-secondary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-sm btn-secondary btn-disabled" disabled>OK</button></div></div></div>
+      <div style="margin-top:20px;"><p style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Variações de ícone</p><div class="btn-icon-row"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-secondary">Continuar</button><span class="btn-icon-label">Sem ícone</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Adicionar</button><span class="btn-icon-label">Ícone esquerda</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-secondary">Próximo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone direita</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Iniciar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone ambos</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-icon-only btn-secondary" title="Adicionar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button><span class="btn-icon-label">Icon-only</span></div></div></div>
+    </div>
+
+    <!-- TERTIARY -->
+    <div id="btntab-tertiary" class="btn-variant-content">
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6;">sem bg · sem borda · color: <code>textSec</code> · pressed: <code>text</code> opacity 0.55 · uso: ações terciárias, links inline, "Pular" ao fim do timer</p>
+      <div class="btn-matrix"><div class="btn-matrix-header"><div>Estado</div><div>LG — 54px / 16px</div><div>MD — 44px / 14px</div><div>SM — 36px / 12px</div></div><div class="btn-matrix-row"><div>Normal</div><div><button class="btn btn-lg btn-tertiary">Continuar</button></div><div><button class="btn btn-md btn-tertiary">Continuar</button></div><div><button class="btn btn-sm btn-tertiary">OK</button></div></div><div class="btn-matrix-row"><div>Loading</div><div><button class="btn btn-lg btn-tertiary btn-loading"><span class="btn-spinner"></span> Enviando</button></div><div><button class="btn btn-md btn-tertiary btn-loading"><span class="btn-spinner"></span> Aguarde</button></div><div><button class="btn btn-sm btn-tertiary btn-loading"><span class="btn-spinner"></span></button></div></div><div class="btn-matrix-row"><div>Disabled</div><div><button class="btn btn-lg btn-tertiary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-md btn-tertiary btn-disabled" disabled>Continuar</button></div><div><button class="btn btn-sm btn-tertiary btn-disabled" disabled>OK</button></div></div></div>
+      <div style="margin-top:20px;"><p style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Variações de ícone</p><div class="btn-icon-row"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-tertiary">Continuar</button><span class="btn-icon-label">Sem ícone</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-tertiary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Adicionar</button><span class="btn-icon-label">Ícone esquerda</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-tertiary">Próximo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone direita</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-tertiary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Iniciar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><span class="btn-icon-label">Ícone ambos</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><button class="btn btn-md btn-icon-only btn-tertiary" title="Adicionar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button><span class="btn-icon-label">Icon-only</span></div></div></div>
+    </div>
+
+    <!-- DANGER -->
+    <div class="sub-section" style="margin-top:32px;">
+      <p class="sub-title">Danger — ação destrutiva</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">bg: <code>errFaint</code> · border + color: <code>err</code> · sempre acompanhar de confirmação modal antes de executar</p>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <button class="btn btn-lg btn-danger">Excluir conta</button>
+        <button class="btn btn-md btn-danger">Encerrar sessão</button>
+        <button class="btn btn-sm btn-danger">Remover</button>
+        <button class="btn btn-md btn-danger btn-loading" style="pointer-events:none;"><span class="btn-spinner" style="border-color:rgba(255,107,107,0.3);border-top-color:var(--err);"></span> Excluindo…</button>
+        <button class="btn btn-md btn-danger btn-disabled" disabled>Excluir conta</button>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="sub-section" style="margin-top:32px;">
+      <p class="sub-title">Social — Auth (existentes)</p>
+      <div style="display:flex;flex-direction:column;max-width:360px;gap:10px;">
+        <button class="btn-social" style="width:100%;">
+          <svg width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Continuar com o Google
+        </button>
+        <button class="btn-social" style="width:100%;background:#000;border-color:rgba(255,255,255,0.2);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Continuar com a Apple
+        </button>
+      </div>
+    </div>
+
+  </section>
+

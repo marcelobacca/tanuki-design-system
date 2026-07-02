@@ -1,0 +1,86 @@
+  <section id="chips">
+    <div class="section-header">
+      <p class="section-label">07 — Componentes</p>
+      <h2 class="section-title">Chips de Kana</h2>
+      <p class="section-desc">Chips usados na tela Home para seleção de kanas. Possuem barra de progresso no rodapé.</p>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Estados</p>
+      <!-- 5-chip row simulando layout real da HomeScreen -->
+      <div style="display:flex;gap:6px;max-width:360px;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:100%;min-width:0;"><span class="kana-char" style="font-family:var(--font-noto);">あ</span><span class="kana-romaji">a</span><div class="chip-bar-bg"></div></div>
+          <span style="font-size:8px;color:var(--dim);font-family:monospace;text-align:center;">Padrão</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip selected" style="width:100%;min-width:0;"><span class="kana-char" style="font-family:var(--font-noto);">い</span><span class="kana-romaji">i</span><div class="chip-bar-bg"><div class="chip-bar-fill" style="width:40%;background:var(--pri);"></div></div></div>
+          <span style="font-size:8px;color:var(--dim);font-family:monospace;text-align:center;">Selecionado</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:100%;min-width:0;"><span class="kana-char" style="font-family:var(--font-noto);">う</span><span class="kana-romaji">u</span><div class="chip-bar-bg"><div class="chip-bar-fill" style="width:60%;background:var(--pri);"></div></div></div>
+          <span style="font-size:8px;color:var(--dim);font-family:monospace;text-align:center;">c/ progresso</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:100%;min-width:0;"><span class="kana-char" style="font-family:var(--font-noto);">え</span><span class="kana-romaji">e</span><div class="chip-bar-bg"><div class="chip-bar-fill" style="width:100%;background:var(--ok);"></div></div></div>
+          <span style="font-size:8px;color:var(--dim);font-family:monospace;text-align:center;">Dominado</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:100%;min-width:0;opacity:0.35;"><span class="kana-char" style="font-family:var(--font-noto);">か</span><span class="kana-romaji">ka</span><div class="chip-bar-bg"></div></div>
+          <span style="font-size:8px;color:var(--dim);font-family:monospace;text-align:center;">Bloqueado</span>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:11px;color:var(--muted);"><code>width: auto</code> · <code>flex: 1</code> · 5 por linha · height 68px · radius 9px · borda <code>pri</code> só quando selecionado · barra verde = dominado · Noto Sans JP 19px</p>
+    </div>
+    <div class="sub-section">
+      <p class="sub-title">Combo kana (Yōon)</p>
+      <div style="display:flex;gap:16px;align-items:flex-end;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:auto;min-width:64px;padding:0 10px;"><span class="kana-char" style="font-family:var(--font-noto);font-size:19px;">きゃ</span><span class="kana-romaji">kya</span><div class="chip-bar-bg"></div></div>
+          <span style="font-size:9px;color:var(--muted);font-family:monospace;">Combo padrão</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip selected" style="width:auto;min-width:64px;padding:0 10px;"><span class="kana-char" style="font-family:var(--font-noto);font-size:19px;">しゅ</span><span class="kana-romaji">shu</span><div class="chip-bar-bg"><div class="chip-bar-fill" style="width:50%;background:var(--pri);"></div></div></div>
+          <span style="font-size:9px;color:var(--muted);font-family:monospace;">Selecionado</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="kana-chip" style="width:auto;min-width:64px;padding:0 10px;"><span class="kana-char" style="font-family:var(--font-noto);font-size:19px;">ちょ</span><span class="kana-romaji">cho</span><div class="chip-bar-bg"><div class="chip-bar-fill" style="width:100%;background:var(--ok);"></div></div></div>
+          <span style="font-size:9px;color:var(--muted);font-family:monospace;">Dominado</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-left:16px;padding-left:16px;border-left:1px solid var(--border);">
+          <div style="display:flex;gap:4px;align-items:flex-end;">
+            <div class="kana-chip"><span class="kana-char" style="font-family:var(--font-noto);">あ</span><span class="kana-romaji">a</span><div class="chip-bar-bg"></div></div>
+            <div class="kana-chip" style="width:auto;min-width:64px;padding:0 10px;"><span class="kana-char" style="font-family:var(--font-noto);font-size:19px;">きゃ</span><span class="kana-romaji">kya</span><div class="chip-bar-bg"></div></div>
+          </div>
+          <span style="font-size:9px;color:var(--muted);font-family:monospace;">Comparação largura</span>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:11px;color:var(--muted);">Chip combo: <code>width: auto</code> · <code>min-width: 64px</code> · padding horizontal para acomodar 2 caracteres</p>
+    </div>
+
+    <div class="sub-section">
+      <p class="sub-title">Chips de resultado</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div class="result-chip" style="color:var(--ok);border-color:var(--ok);background:var(--okFaint);"><span class="kana" style="font-family:var(--font-noto);">き</span><span class="rom">✓</span></div>
+          <span style="font-size:9px;color:var(--dim);font-family:monospace;">Correto</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div class="result-chip" style="color:var(--muted);border-color:var(--border);"><span class="kana" style="font-family:var(--font-noto);">し</span><span class="rom">shi</span></div>
+          <span style="font-size:9px;color:var(--dim);font-family:monospace;">Neutro</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div class="result-chip" style="color:var(--err);border-color:var(--err);background:var(--errFaint);"><span class="kana" style="font-family:var(--font-noto);">に</span><span class="rom">ni</span></div>
+          <span style="font-size:9px;color:var(--dim);font-family:monospace;">Errado</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;margin-left:8px;padding-left:12px;border-left:1px solid var(--border);">
+          <div class="result-chip" style="color:var(--ok);border-color:var(--ok);background:var(--okFaint);"><span class="kana" style="font-family:var(--font-noto);">きゃ</span><span class="rom">✓</span></div>
+          <span style="font-size:9px;color:var(--dim);font-family:monospace;">Yōon correto</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div class="result-chip" style="color:var(--err);border-color:var(--err);background:var(--errFaint);"><span class="kana" style="font-family:var(--font-noto);">しゅ</span><span class="rom">shu</span></div>
+          <span style="font-size:9px;color:var(--dim);font-family:monospace;">Yōon errado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+

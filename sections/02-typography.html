@@ -1,0 +1,101 @@
+  <section id="typography">
+    <div class="section-header">
+      <p class="section-label">02 — Fundação</p>
+      <h2 class="section-title">Tipografia</h2>
+      <p class="section-desc">Duas famílias: <strong>Inter</strong> para toda a UI, <strong>Noto Sans JP</strong> exclusivamente para kana. Sem escala tipográfica formal — tamanhos são ad-hoc por contexto.</p>
+    </div>
+
+    <div class="sub-section">
+      <p class="sub-title">Inter — UI</p>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Display / Hero</p><p class="type-spec">48px · ExtraBold 800</p></div>
+        <span class="type-sample" style="font-size:48px;font-weight:800;line-height:1;">Tanuki</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">H1 / Page</p><p class="type-spec">26px · Bold 700</p></div>
+        <span class="type-sample" style="font-size:26px;font-weight:700;">Redefinir Senha</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">H2</p><p class="type-spec">20px · Bold 700</p></div>
+        <span class="type-sample" style="font-size:20px;font-weight:700;">Combinações (Yōon)</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Section</p><p class="type-spec">16px · Bold 700</p></div>
+        <span class="type-sample" style="font-size:16px;font-weight:700;">Kanas dominados</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Body</p><p class="type-spec">14px · Regular 400</p></div>
+        <span class="type-sample" style="font-size:14px;">Continue com o Google ou Apple para salvar seu progresso.</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Body Medium</p><p class="type-spec">14px · Medium 500</p></div>
+        <span class="type-sample" style="font-size:14px;font-weight:500;">Progresso salvo automaticamente</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Caption</p><p class="type-spec">12px · Regular</p></div>
+        <span class="type-sample" style="font-size:12px;">Escolha o nível de dificuldade</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Overline</p><p class="type-spec">12px · Bold · tracking 1.5px</p></div>
+        <span class="type-sample" style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">SELECIONE O ROMAJI</span>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><p class="type-name">Micro</p><p class="type-spec">10px · Bold</p></div>
+        <span class="type-sample" style="font-size:10px;font-weight:700;">HIRAGANA</span>
+      </div>
+      <p style="margin-top:16px;font-size:12px;color:var(--muted);padding:12px 16px;background:var(--surf);border-radius:10px;border-left:3px solid var(--pri);">
+        <strong style="color:var(--text);">Cor é um token separado.</strong> Todos os specimens acima usam <code>--text</code> (branco base). A cor aplicada — muted, pri, ok, err — vem dos tokens de cor e é um treatment independente da fonte.
+      </p>
+    </div>
+
+    <div class="sub-section">
+      <p class="sub-title">Noto Sans JP — Kana only</p>
+      <div style="display:flex;gap:12px;margin-top:4px;">
+
+        <!-- Session prompt kana -->
+        <div style="flex:1;background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <p class="type-name">Session prompt kana</p>
+            <p class="type-spec">48px · Regular 400</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:16px 0;">
+            <span style="font-family:var(--font-noto);font-size:48px;font-weight:400;color:var(--text);line-height:1;">あ</span>
+          </div>
+          <p style="font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px;line-height:1.5;">SessionScreen — caractere a ser identificado durante a prática</p>
+        </div>
+
+        <!-- Card kana -->
+        <div style="flex:1;background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <p class="type-name">Card kana</p>
+            <p class="type-spec">20px · Regular 400 · lineHeight 24</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;flex:1;gap:12px;padding:16px 0;">
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:400;color:var(--text);line-height:24px;">き</span>
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:400;color:var(--text);line-height:24px;">し</span>
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:400;color:var(--text);line-height:24px;">ち</span>
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:400;color:var(--text);line-height:24px;">に</span>
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:400;color:var(--text);line-height:24px;">み</span>
+          </div>
+          <p style="font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px;line-height:1.5;">HomeScreen — chips de seleção de kana</p>
+        </div>
+
+        <!-- Logo JP -->
+        <div style="flex:1;background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <p class="type-name">Logo JP</p>
+            <p class="type-spec">20px · Medium 500</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:16px 0;">
+            <span style="font-family:var(--font-noto);font-size:20px;font-weight:500;color:var(--text);">たぬき</span>
+          </div>
+          <p style="font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px;line-height:1.5;">Header — logotipo em todos os screens</p>
+        </div>
+
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:16px;padding:12px 16px;background:var(--surf);border-radius:10px;border-left:3px solid var(--border);line-height:1.6;">
+        <strong style="color:var(--text);">Por que não usar Inter?</strong> Inter é uma fonte Latin-only — ela simplesmente não contém os glifos japoneses (hiragana, katakana). Sem Noto Sans JP, os caracteres aparecem como □ ou caem para a fonte do sistema (que varia por device). No iOS o fallback seria "Hiragino Sans" (boa), no Android seria inconsistente. Noto Sans JP garante renderização idêntica em todas as plataformas.
+      </p>
+    </div>
+  </section>
+

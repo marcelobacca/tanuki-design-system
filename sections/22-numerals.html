@@ -1,0 +1,445 @@
+  <section id="numerals">
+    <div class="section-header">
+      <p class="section-label">22 — Módulo</p>
+      <h2 class="section-title">Numerais — Layouts de Exercício</h2>
+      <p class="section-desc">
+        Módulo independente do kana — usa <code style="font-family:monospace;font-size:12px;background:var(--surf2);padding:2px 6px;border-radius:4px;">NumeralsSessionScreen.js</code>
+        com três tipos de exercício misturados por sessão. Shell visual idêntico ao SessionScreen (header/barra/feedbackBar), mas estado e XP isolados em <code style="font-family:monospace;font-size:12px;background:var(--surf2);padding:2px 6px;border-radius:4px;">progress.numerals</code>.
+        Componentes em <code style="font-family:monospace;font-size:12px;background:var(--surf2);padding:2px 6px;border-radius:4px;">src/components/numerals/</code>.
+      </p>
+    </div>
+
+    <!-- Catálogo -->
+    <div class="sub-section">
+      <p class="sub-title">Catálogo</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">ID</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">Layout</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">qtype</th>
+              <th style="text-align:left;padding:8px 10px;color:var(--muted);font-weight:600;">Componente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">N1</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Build — Monte o número</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">build</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">NumeralBuildExercise.js · @jamsch/react-native-duo-drag-drop</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(122,120,163,0.12);">
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">N2</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Select — Escolha o número</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">select</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">NumeralSelectExercise.js</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 10px;"><span style="background:var(--priFaint);color:var(--pri);border:1px solid rgba(123,114,240,0.35);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;">N3</span></td>
+              <td style="padding:8px 10px;color:var(--text);font-weight:500;">Type — Digite o número</td>
+              <td style="padding:8px 10px;color:var(--muted);font-family:monospace;">type</td>
+              <td style="padding:8px 10px;color:var(--dim);font-family:monospace;font-size:11px;">NumeralTypeExercise.js</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════ N1 — Build -->
+    <div class="sub-section">
+      <p class="sub-title">N1 — Build · Monte o número em japonês</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Drag-and-drop estilo Duolingo (lib <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">@jamsch/react-native-duo-drag-drop</code>). Prompt: algarismos ocidentais em Inter 700 (fontSize por <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">numberFontSize(digits)</code>: 3d→40px, 4d→36, 5d→32, 6d→28, 7d→24). Zona de resposta tem 2 linhas com divisória. Banco de blocos abaixo. Botão OK ativo só quando ≥1 bloco colocado.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <!-- Banco vazio -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Nenhum bloco colocado</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <!-- Header -->
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:25%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">08</span>
+              </div>
+              <!-- Instruction -->
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Monte o número em japonês</span>
+              </div>
+              <!-- Prompt: algarismos ocidentais, sem subtitle -->
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:40px;color:#E8E6F8;font-weight:700;text-align:center;">600</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Zone answers: DuoDragDrop -->
+              <div style="flex:1;padding:12px 16px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;">
+                <!-- Answer area: 2 lines × lineHeight 64px = 128px total -->
+                <div style="position:relative;height:128px;width:100%;margin-bottom:40px;">
+                  <!-- Line 1 divider at bottom of slot 1 (top:62px) -->
+                  <div style="position:absolute;left:0;right:0;top:62px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <!-- Line 2 divider at bottom of slot 2 (top:126px) -->
+                  <div style="position:absolute;left:0;right:0;top:126px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <!-- Empty placeholders (visible slots) -->
+                  <div style="display:flex;gap:4px;padding-top:4px;flex-wrap:wrap;">
+                    <div style="height:56px;width:80px;border-radius:8px;background:rgba(255,255,255,0.05);margin-right:4px;margin-bottom:4px;"></div>
+                    <div style="height:56px;width:80px;border-radius:8px;background:rgba(255,255,255,0.05);margin-right:4px;margin-bottom:4px;"></div>
+                  </div>
+                </div>
+                <!-- Word bank (wordBankOffsetY:20 applied twice → ~40px gap handled by margin-bottom above) -->
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                  <!-- Pill bank: bg rgba(34,31,53,0.62), border:border -->
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">六</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                  </div>
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">百</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                  </div>
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ろく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                  </div>
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ひゃく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                  </div>
+                </div>
+              </div>
+              <!-- feedbackBar: OK desativado -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="width:100%;height:52px;border-radius:12px;background:#211F32;display:flex;align-items:center;justify-content:center;">
+                  <span style="color:#7A78A3;font-weight:700;font-size:16px;">OK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blocos colocados, OK ativo -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Blocos colocados — OK ativo</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:25%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">05</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Monte o número em japonês</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:40px;color:#E8E6F8;font-weight:700;text-align:center;">600</span>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:1;padding:12px 16px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;">
+                <!-- Answer area com blocos colocados (pillPlaced: bg surf2, border pri) -->
+                <div style="position:relative;height:128px;width:100%;margin-bottom:40px;">
+                  <div style="position:absolute;left:0;right:0;top:62px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <div style="position:absolute;left:0;right:0;top:126px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <div style="display:flex;gap:4px;padding-top:4px;flex-wrap:wrap;">
+                    <!-- Placed: bg surf2, border pri -->
+                    <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid #7B72F0;background:#211F32;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-right:4px;margin-bottom:4px;">
+                      <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">六</span>
+                      <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                    </div>
+                    <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid #7B72F0;background:#211F32;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-right:4px;margin-bottom:4px;">
+                      <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">百</span>
+                      <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Bank: distractors restantes -->
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                  <!-- Blocos corretos já usados → ficam invisíveis (opacity 0 ou removidos) -->
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ろく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                  </div>
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ひゃく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                  </div>
+                </div>
+              </div>
+              <!-- OK ativo -->
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;box-shadow:0 6px 12px rgba(123,114,240,0.5);display:flex;align-items:center;justify-content:center;">
+                  <span style="color:#fff;font-weight:700;font-size:16px;">OK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Correto -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Resposta correta</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:40%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Monte o número em japonês</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:40px;color:#E8E6F8;font-weight:700;text-align:center;">600</span>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:1;padding:12px 16px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;">
+                <div style="position:relative;height:128px;width:100%;margin-bottom:40px;">
+                  <div style="position:absolute;left:0;right:0;top:62px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <div style="position:absolute;left:0;right:0;top:126px;height:2px;border-radius:1px;background:rgba(122,120,163,0.28);"></div>
+                  <div style="display:flex;gap:4px;padding-top:4px;">
+                    <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid #7B72F0;background:#211F32;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-right:4px;">
+                      <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">六</span>
+                      <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                    </div>
+                    <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid #7B72F0;background:#211F32;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-right:4px;">
+                      <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">百</span>
+                      <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ろく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">roku</span>
+                  </div>
+                  <div style="height:56px;padding:0 14px;border-radius:8px;border:1.5px solid rgba(122,120,163,0.28);background:rgba(34,31,53,0.62);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                    <span style="font-size:18px;line-height:22px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;">ひゃく</span>
+                    <span style="font-size:10px;color:#7A78A3;margin-top:1px;">hyaku</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="border-radius:12px;border:1.5px solid rgba(61,214,145,0.35);background:rgba(61,214,145,0.12);padding:14px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:18px;color:#3DD691;">✓</span>
+                  <span style="font-weight:700;font-size:17px;color:#3DD691;">Correto!</span>
+                </div>
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">Entendi</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Prompt font</p><p style="font-size:13px;font-weight:700;color:var(--text);">Inter 700 · 3d→40px, 4d→36, 5d→32, 6d→28, 7d→24</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Pill (height)</p><p style="font-size:13px;font-weight:700;color:var(--text);">wordHeight = 56px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Pill gap</p><p style="font-size:13px;font-weight:700;color:var(--text);">wordGap = 4px</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Line height (slot)</p><p style="font-size:13px;font-weight:700;color:var(--text);">lineHeight = 64px (wordHeight + 8)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Answer lines</p><p style="font-size:13px;font-weight:700;color:var(--text);">ANSWER_LINES = 2 → 128px total</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Divisória de linha</p><p style="font-size:13px;font-weight:700;color:var(--text);">h:2 borderRadius:1 bg:border absolute bottom</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Gap banco→resposta</p><p style="font-size:13px;font-weight:700;color:var(--text);">wordBankOffsetY:20 (aplicado ×2 pela lib = ~40px)</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Pill banco</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: rgba(34,31,53,0.62) · border: border</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Pill colocado</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: surf2 · border: pri</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Kanji no pill</p><p style="font-size:13px;font-weight:700;color:var(--text);">NotoJP 400 · 18px · lh:22 · color: text</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Romaji no pill</p><p style="font-size:13px;font-weight:700;color:var(--text);">10px · color: muted · mt:1</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">OK desativado</p><p style="font-size:13px;font-weight:700;color:var(--text);">bg: surf2 · color: muted · sem shadow</p></div>
+      </div>
+    </div><!-- /N1 -->
+
+    <!-- ══════════════════════════════════ N2 — Select -->
+    <div class="sub-section">
+      <p class="sub-title">N2 — Select · Escolha o número correto</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Mesma grade 2×2 do L1 kana (<code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">NumeralSelectExercise</code>). Prompt: kanji do número em NotoJP fw:500, fontSize por <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">kanjiFontSize(len)</code>: ≤4→32px, ≤7→24, ≤10→18, 14 (mínimo). Subtítulo: romaji da leitura (13px muted). Áudio toca automaticamente ao carregar. Botão OK no banco: fontSize adaptado por <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">fontSizeForDigits</code>: 3d→24, 4d→22, 5d→19, 6d→16, 7d→14.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Antes de responder</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:50%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">10</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Escolha o número correto</span>
+              </div>
+              <!-- Prompt: kanji + romaji subtitle -->
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">六百</span>
+                  </div>
+                  <span style="font-size:13px;color:#7A78A3;margin-top:8px;text-align:center;">roppyaku</span>
+                </div>
+              </div>
+              <!-- Grid 2×2 com algarismos -->
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;padding:0 8px;box-sizing:border-box;">
+                    <span style="font-size:24px;font-weight:600;color:#E8E6F8;">500</span>
+                  </div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;padding:0 8px;box-sizing:border-box;">
+                    <span style="font-size:24px;font-weight:600;color:#E8E6F8;">600</span>
+                  </div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;padding:0 8px;box-sizing:border-box;">
+                    <span style="font-size:24px;font-weight:600;color:#E8E6F8;">700</span>
+                  </div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;padding:0 8px;box-sizing:border-box;">
+                    <span style="font-size:24px;font-weight:600;color:#E8E6F8;">800</span>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;min-height:0;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Correto -->
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Resposta correta</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:65%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Escolha o número correto</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">六百</span>
+                  </div>
+                  <span style="font-size:13px;color:#7A78A3;margin-top:8px;text-align:center;">roppyaku</span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="font-size:24px;font-weight:600;color:#4E4C6A;">500</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid #3DD691;background:rgba(61,214,145,0.12);display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="font-size:24px;font-weight:600;color:#3DD691;">600</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="font-size:24px;font-weight:600;color:#4E4C6A;">700</span></div>
+                  <div style="width:174px;height:88px;border-radius:12px;border:1.5px solid rgba(122,120,163,0.28);display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="font-size:24px;font-weight:600;color:#4E4C6A;">800</span></div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;">
+                <div style="border-radius:12px;border:1.5px solid rgba(61,214,145,0.35);background:rgba(61,214,145,0.12);padding:14px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:18px;color:#3DD691;">✓</span><span style="font-weight:700;font-size:17px;color:#3DD691;">Correto!</span>
+                </div>
+                <div style="width:100%;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:16px;">Entendi</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Prompt kanji font</p><p style="font-size:13px;font-weight:700;color:var(--text);">NotoJP 400 fw:500 · kanjiFontSize(len): ≤4→32, ≤7→24, ≤10→18, 14</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Subtítulo</p><p style="font-size:13px;font-weight:700;color:var(--text);">romaji · 13px muted · mt:8</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Btn grid (font)</p><p style="font-size:13px;font-weight:700;color:var(--text);">fontSizeForDigits: 3d→24, 4d→22, 5d→19, 6d→16, 7d→14</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Btn tamanho</p><p style="font-size:13px;font-weight:700;color:var(--text);">174×88px · R.md · borderWidth:1.5</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Áudio</p><p style="font-size:13px;font-weight:700;color:var(--text);">auto-play ao carregar a questão · botão bg:pri</p></div>
+      </div>
+    </div><!-- /N2 -->
+
+    <!-- ══════════════════════════════════ N3 — Type -->
+    <div class="sub-section">
+      <p class="sub-title">N3 — Type · Digite o número</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+        Idêntico ao L3 Text Input do kana, mas com <code style="font-size:11px;background:var(--surf2);padding:1px 4px;border-radius:3px;">keyboardType="number-pad"</code>. Sem banner de "quase!" (numerais são binários: certo ou errado). Prompt: kanji + romaji subtitle. Áudio auto-play ao carregar.
+      </p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px;">
+
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <p style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Digitando</p>
+          <div style="width:281px;height:608px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:390px;height:844px;transform:scale(0.72);transform-origin:top left;background:#0F0E18;display:flex;flex-direction:column;">
+              <div style="padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                <div style="width:44px;height:44px;border-radius:12px;background:#1A1929;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A78A3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div style="flex:1;height:8px;border-radius:4px;background:#211F32;overflow:hidden;"><div style="width:75%;height:100%;background:#7B72F0;border-radius:4px;"></div></div>
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;min-width:24px;text-align:right;">10</span>
+              </div>
+              <div style="padding:8px 16px;margin-bottom:12px;text-align:center;flex-shrink:0;">
+                <span style="font-size:12px;color:#7A78A3;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Digite o número</span>
+              </div>
+              <div style="padding:12px 16px 0;margin-bottom:12px;flex-shrink:0;">
+                <div style="width:100%;padding-top:24px;padding-bottom:23px;height:140px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;">
+                  <div style="display:flex;align-items:center;justify-content:center;width:100%;height:56px;position:relative;">
+                    <div style="position:absolute;left:0;width:44px;height:44px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    </div>
+                    <span style="font-size:32px;color:#E8E6F8;font-weight:500;font-family:'Noto Sans JP',sans-serif;text-align:center;">六百</span>
+                  </div>
+                  <span style="font-size:13px;color:#7A78A3;margin-top:8px;text-align:center;">roppyaku</span>
+                </div>
+              </div>
+              <div style="padding:12px 16px;flex:1;display:flex;flex-direction:column;justify-content:flex-start;">
+                <div style="display:flex;gap:10px;">
+                  <div style="flex:1;height:52px;border-radius:12px;background:#1A1929;border:1px solid rgba(122,120,163,0.28);display:flex;align-items:center;padding:0 16px;">
+                    <span style="font-size:18px;color:#E8E6F8;">6_</span>
+                  </div>
+                  <div style="width:52px;height:52px;border-radius:12px;background:#7B72F0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:16px 16px 32px;background:#0F0E18;flex-shrink:0;min-height:0;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surf);border-radius:10px;padding:12px 14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <div><p style="font-size:11px;color:var(--muted);">Input</p><p style="font-size:13px;font-weight:700;color:var(--text);">keyboardType: number-pad · sem banner "quase"</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Input style</p><p style="font-size:13px;font-weight:700;color:var(--text);">flex:1 · h:52 · R.md · bg:surf · fs:18</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Submit btn</p><p style="font-size:13px;font-weight:700;color:var(--text);">52×52px · R.md · bg:pri</p></div>
+        <div><p style="font-size:11px;color:var(--muted);">Validação</p><p style="font-size:13px;font-weight:700;color:var(--text);">binária — certo ou errado, sem tentativa parcial</p></div>
+      </div>
+    </div><!-- /N3 -->
+
+  </section>

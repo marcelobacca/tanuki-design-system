@@ -1,0 +1,13 @@
+{
+  "name": "tanuki-design-system",
+  "version": "1.0.0",
+  "description": "Design system (showcase + tokens) do app Tanuki Sensei — dark mode, React Native.",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 4444 .",
+    "start": "serve -l 4444 ."
+  },
+  "devDependencies": {
+    "serve": "^14"
+  }
+}
