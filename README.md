@@ -1,10 +1,13 @@
 # Tanuki Sensei — Design System
 
-Fonte da verdade visual do app **Tanuki Sensei** (prática de hiragana/katakana em React Native + Expo).
-Showcase estático (HTML/CSS/JS puro, sem build) que documenta tokens e componentes.
+Fonte da verdade do app **Tanuki Sensei** (prática de hiragana/katakana em React Native + Expo):
+o **visual** (tokens + componentes, showcase estático) e a **lógica de telas e exercícios** (docs).
 
 🔗 **Live:** https://tanuki-design-system.vercel.app/
 📦 **Repo:** https://github.com/marcelobacca/tanuki-design-system (deploy automático a cada push no `main`)
+
+> 📖 **Começando (humano ou modelo)? Leia o [GUIDE.md](GUIDE.md)** — ponto de entrada que liga o
+> visual, os layouts de tela (L0–L5) e os exercícios. Regra de atualização em [MAINTENANCE.md](MAINTENANCE.md).
 
 > **Dark mode only** (hoje). Um modo claro (light mode) está sendo estudado — ver [Light mode](#light-mode-em-estudo).
 
