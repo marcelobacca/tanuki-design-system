@@ -85,6 +85,10 @@
   }
   #sidebar a.active { color: var(--pri); }
   .nav-icon { opacity: 0.6; font-size: 14px; width: 18px; text-align: center; }
+  .nav-soon {
+    display: block; padding: 6px 12px 12px; margin-bottom: 2px;
+    font-size: 10px; line-height: 1.5; color: var(--dim); font-style: italic;
+  }
 
   /* ── Main ── */
   main {

@@ -12,11 +12,9 @@ Fonte da verdade: este repo (`~/tanuki-design-system`). Executamos 1 a 1.
 - [x] 0.4 Deletar o deploy antigo `taupe-gamma` no Vercel.
 
 ## FASE 1 — Reestrutura da doc (Geist + shadcn)
-- [ ] 1.1 Nota de escopo **descritiva** no topo: app nativo RN (iOS/Android), cozy, dark, mobile-first.
-      Foundations e componentes são **reaproveitáveis** (inclusive p/ web um dia) — não proibir, só contextualizar.
-- [ ] 1.2 Arquitetura em **4 áreas**: Foundations · Components · Mobile Patterns · Approved Screens (remapear seções atuais + sidebar).
-- [ ] 1.3 Novo **layout visual** estilo Geist (limpo, espaçoso), identidade Tanuki (dark surf/surf2/pri),
-      **já preparado para um toggle light/dark** (CSS vars + `[data-theme]`).
+- [x] 1.1 Nota de escopo **descritiva** no topo (mobile-first RN, foundations/componentes reaproveitáveis; não proibir web).
+- [x] 1.2 Arquitetura em **4 áreas**: Foundations · Components · Mobile Patterns · Approved Screens (sidebar reorganizada + "em breve").
+- [~] 1.3 Novo **layout visual** estilo Geist — *readiness de tema feito* (`data-theme` no html + cores via CSS vars); **falta o polish visual Geist**.
 - [ ] 1.4 Componente **mobile frame** (mock de celular) reutilizável para os exemplos.
 - [ ] 1.5 **Formato-padrão de página de componente**: exemplo no frame · quando usar · variantes · estados · tokens · regra · "do not" · ref RN.
 
