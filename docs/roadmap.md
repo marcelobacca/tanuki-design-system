@@ -3,6 +3,9 @@
 Checklist vivo da reforma do DS (visão Geist na doc + shadcn na organização dos componentes).
 Fonte da verdade: este repo (`~/tanuki-design-system`). Executamos 1 a 1.
 
+> **Tickets no Linear:** projeto [Tanuki Design System](https://linear.app/tanuki-sensei/project/tanuki-design-system-f9c6de430f10) — **TAN-51…TAN-70** (criados 2026-07-08).
+> DS-doc: TAN-51–60 · Light mode: TAN-61 · App-native: TAN-62–70 (backlog, aguardando liberação).
+>
 > **Escopo atual: Fases 0 → 2.** Fase 3 em diante fica para depois (tem decisões por componente).
 
 ## FASE 0 — Consolidação (fonte única) ✅
