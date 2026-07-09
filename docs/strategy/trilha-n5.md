@@ -12,14 +12,14 @@
    (padrão das escolas de japonês, inclusive as brasileiras) com validação cruzada no
    **Genki I**. Professores olham a trilha e reconhecem a ordem — argumento central do
    posicionamento "complementa a escola, não compete" (não somos Duolingo).
-2. **Enquadramento por situação (estilo Irodori/JF)** — o título de cada lição é uma
+2. **Enquadramento por situação (estilo Irodori/JF)** — o título de cada capítulo é uma
    *situação prática* ("Se apresentar", "Comer e beber"), nunca um ponto gramatical
-   ("Lição 3: partícula で"). O ponto gramatical está *dentro* da situação.
-3. **Vocabulário em espiral (gotejamento)** — NUNCA 100% de um tema numa lição só.
-   Ninguém aprende 190 países de uma vez: aprende 5 agora, +5 três lições depois, +5 mais
-   adiante. Regra: **máx ~40% das palavras novas de uma lição vêm do mesmo tema**, e todo
-   tema grande (países, comidas, família…) goteja por **3+ lições**. A revisão SRS
-   reapresenta os antigos junto dos novos.
+   ("Capítulo 3: partícula で"). O ponto gramatical está *dentro* da situação.
+3. **Vocabulário em espiral (gotejamento)** — NUNCA 100% de um tema num capítulo só.
+   Ninguém aprende 190 países de uma vez: aprende 5 agora, +5 capítulos depois mais 5,
+   e assim por diante. Regra: **máx ~40% das palavras novas de um capítulo vêm do mesmo
+   tema**, e todo tema grande (países, comidas, família…) goteja por **3+ capítulos**.
+   A revisão SRS reapresenta os antigos junto dos novos.
 4. **Auto-completa pelo SRS** — a lição não tem "prova de conclusão" própria: ela fecha
    quando os itens dela atingem os critérios de aprendizado do SRS compartilhado
    (vocab-grammar.md §6.4). Quem já domina o conteúdo por fora (módulo de kana, numerais,
@@ -34,28 +34,63 @@
 N5 ≈ **Minna no Nihongo I inteiro** (25 lições) ≈ **Genki I** (12 lições) ≈ 300–400h de
 estudo: kana completos, ~107 kanji, ~700–800 palavras, ~70–80 pontos gramaticais. Não é
 "básico do básico" — é um curso completo de iniciante, e é exatamente o escopo da v1 da
-trilha. Compressão adotada: **12 lições** (2 lições MnN ≈ 1 lição Tanuki, aproximadamente).
+trilha. Compressão adotada: **12 capítulos** (2 lições MnN ≈ 1 capítulo Tanuki,
+aproximadamente; cada capítulo se desdobra em ~8–12 lições pequenas internas, ver §3).
 
-## 3. Anatomia de uma lição
+## 3. Anatomia de um capítulo
 
-Cada lição tem **4 etapas** (~12–15 questões cada), sempre na mesma ordem:
+> Estrutura espelhada nos livros: no MnN cada capítulo tem 文型 (padrões) → Renshū A
+> (drill de forma, UM ponto por vez) → Renshū B (substituição, um ponto por vez) →
+> Renshū C (mini-diálogos combinando) → Mondai (revisão). Muitos exercícios pequenos
+> de um micro-ponto cada; a integração acontece só no fim.
 
-| Etapa | Conteúdo | Layouts |
-|---|---|---|
-| 1. Palavras | vocab novo da lição (SRS stage 0→1) | L1, L6 Match Pairs |
-| 2. Frases | o(s) padrão(ões) gramatical(is) na prática | **L7 Sentence Frame**, L1 |
-| 3. Kanji | os kanji da lição (forma → significado) | L5 Tracing, L1, L6 |
-| 4. Revisão | mistura tudo da lição + itens SRS antigos due | todos |
+A trilha tem **12 capítulos** (= "lições" dos livros). Cada capítulo tem um **tema
+central** e **~8–12 lições pequenas** (~10–15 questões cada), cada uma focada em UM
+micro-ponto:
 
-- **XP**: por etapa concluída (mesma tabela vocab-grammar.md §6.5); anti-farm pelo SRS.
-- Kana são pré-requisito de entrada da trilha (o app já cobre); a Lição 0 implícita é
+| Tipo de lição | Foco | Layouts | Qtde/capítulo |
+|---|---|---|---|
+| **Palavras** | UM tema de vocab (ex.: só cumprimentos) | L1, L6 Match | 2–4 |
+| **Frases** | UM ponto gramatical (ex.: só は; só です) | **L7**, L1 | 2–4 |
+| **Kanji** | os kanji do capítulo, em lote pequeno | L5, L1, L6 | 1–2 |
+| **Montar frases** | integração: combina TODOS os pontos do capítulo | L7 | 1–2 |
+| **Revisão** | mistura tudo + itens SRS antigos due | todos | 1 (sempre a última) |
+
+Regras de sequência dentro do capítulo:
+- A lição de **Palavras** de um tema vem ANTES da lição de **Frases** que usa aquelas
+  palavras (aprende ねこ antes de montar ねこは…です).
+- Um ponto gramatical por lição de Frases — nunca "は e です juntos" na primeira vez.
+- **Montar frases** (integração) só nas últimas posições, quando todos os pontos já
+  passaram individualmente.
+- **Revisão** fecha o capítulo e é o gate natural (via SRS) para o próximo.
+
+### Exemplo concreto — Capítulo 1 "Se apresentar" (9 lições)
+
+1. Palavras · Cumprimentos (8)
+2. Frases · です — "X é Y" (わたしは…です)
+3. Palavras · Países e nacionalidades (5 + 〜じん)
+4. Frases · は — o marcador de tópico
+5. Palavras · Profissões (5)
+6. Frases · じゃありません — negação
+7. Kanji · 人・日・本
+8. Montar frases · Se apresentar (integra は+です+じゃありません+todo o vocab)
+9. Revisão do capítulo
+
+≈ 9 lições × 12–20 questões ≈ **110–180 questões por capítulo** — volume de curso de
+verdade. E é isso que faz o SRS funcionar dentro da trilha: o mesmo item reaparece
+várias vezes no capítulo (na lição dele → na integração → na revisão) e de novo nos
+capítulos seguintes via revisão SRS — repetição espaçada real, não "viu uma vez e passou".
+
+- **XP**: por lição concluída (tabela vocab-grammar.md §6.5); anti-farm pelo SRS.
+- Kana são pré-requisito de entrada da trilha (o app já cobre); o Capítulo 0 implícito é
   "domine hiragana" — a trilha aponta para o módulo de kana se o usuário chegar cru.
-- Numerais: as lições 3–4 **reusam o módulo de numerais** em vez de reensinar.
+- Numerais: os capítulos 3–4 **reusam o módulo de numerais** em vez de reensinar.
 
-## 4. As 12 lições (mapa MnN I / Genki I)
+## 4. Os 12 capítulos (mapa MnN I / Genki I)
 
-> Colunas de vocabulário mostram o **gotejamento**: `tema (n de ~total)`.
-> Kanji: sempre do banco existente de 107 (`n5Kanji.js`).
+> Cada linha é um CAPÍTULO (~8–12 lições internas, ver §3). Colunas de vocabulário
+> mostram o **gotejamento**: `tema (n de ~total)`. Cada item de gramática separado por
+> `·` vira uma lição de Frases própria. Kanji: sempre do banco de 107 (`n5Kanji.js`).
 
 | # | Situação | Gramática (MnN/Genki) | Vocabulário (~28 novas/lição) | Kanji |
 |---|---|---|---|---|
@@ -80,18 +115,21 @@ fora do banco ficam em kana.
 
 ## 5. Fatia de validação (v1 construível agora)
 
-Construir de ponta a ponta **apenas as Lições 1–3**; as lições 4–12 aparecem na trilha
-esmaeçidas ("em breve") para comunicar a dimensão do curso.
+Construir de ponta a ponta **apenas os Capítulos 1–2** (~18–20 lições internas, ~250
+questões); os capítulos 3–12 aparecem na trilha esmaeçidos ("em breve") para comunicar
+a dimensão do curso.
 
-Pré-requisitos por lição da fatia:
-- **L1–L3 vocab**: ~85 palavras com áudio (Codex gera banco + áudio de uma vez).
-- **L1–L3 frases**: ~10–15 frases-modelo por lição para o L7 (com distratores).
-- **Kanji**: exercícios do MVP kanji (kanji.md §4) filtrados pelos kanji da lição.
-- **Telas**: trilha (lista de lições + 4 etapas) — preview em `KanjiPathPreviewScreen`
-  (modo Trilha) até aprovação; depois vira tela real atrás de flag (`FLAGS.vocab`).
+Pré-requisitos da fatia (C1–C2):
+- **Vocab**: ~60 palavras com áudio (Codex gera banco + áudio de uma vez).
+- **Frases**: ~10–15 frases-modelo por lição de Frases/Montar para o L7 (com distratores).
+- **Kanji**: exercícios do MVP kanji (kanji.md §4) filtrados pelos kanji do capítulo.
+- **Telas**: trilha (capítulos expandíveis → lista de lições internas) — preview em
+  `KanjiPathPreviewScreen` (modo Trilha) até aprovação; depois vira tela real atrás de
+  flag (`FLAGS.vocab`).
 
-Critério de validação: usuários completam L1–L3, entendem o formato "curso" e voltam
-para a revisão SRS. Só então construímos L4–L12.
+Critério de validação: usuários completam C1–C2, entendem o formato "curso" (clica no
+card → ~15–20 questões → check → próxima lição) e voltam para a revisão SRS. Só então
+construímos C3–C12.
 
 ## 6. O que a trilha NÃO é
 
