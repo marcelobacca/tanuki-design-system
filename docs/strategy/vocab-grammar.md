@@ -114,11 +114,28 @@ tela própria, exercícios próprios).
     SLOT_place: { query: { tags: ["place"], lessonsLearned: true }, min: 3 }
   },
   fixedExamples: [],               // opcional: frases autorais citando vw_ ids
+  particleExercise: null,          // opcional: { answer: "は", distractors: ["を","に","で"] }
   requiresVocab: ["vw_koko"],
   requiresGrammar: [],
   level: 1
 }
 ```
+
+> **Implementado (TAN-15 + TAN-29, 2026-07-09):** `src/utils/grammar/slots.js` +
+> `src/utils/vocab/distractors.js` (funções puras, banco/SRS por parâmetro).
+> Resolução: slot com < `min` candidatos → fallback `fixedExamples` → senão o
+> padrão **não entra na sessão** (nunca frase quebrada); `lessonsLearned` = SRS
+> stage ≥ 1; palavra gramatical nunca preenche slot (decisão 12).
+> **Partículas são curadas no dado** (`particleExercise`), nunca geradas por
+> algoritmo — が vs は prova que não há regra segura ("ここはがっこうです" e
+> "ここががっこうです" são ambas válidas): o autor do padrão garante que cada
+> distrator é errado de verdade naquela frase; o resolvedor apenas valida
+> (answer ∉ distractors, ≥ 2 distratores únicos). Anti-ambiguidade de
+> distratores (edges #1/#2/#12): sentidos normalizados (sem acento/artigo,
+> multi-sentido) comparados sempre nas 3 línguas + homófonos (kana OU romaji
+> igual) nunca se distraem + mora exato nunca relaxa; sem candidatos → a
+> questão não é gerada (chamador troca o tipo). `SYNONYM_GROUPS` (lista manual
+> exportada) cobre equivalências que a normalização não pega.
 
 ### 3.3 `Lesson` / `Course`
 
