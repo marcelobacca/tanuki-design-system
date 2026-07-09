@@ -56,6 +56,18 @@ micro-ponto:
 | **Montar frases** | integração: combina TODOS os pontos do capítulo | L7 | 1–2 |
 | **Revisão** | mistura tudo + itens SRS antigos due | todos | 1 (sempre a última) |
 
+### Lição = receita, não prova fixa
+
+Uma lição **não** tem perguntas gravadas: ela declara o *escopo* (itens + tipos de
+exercício permitidos + gates) e o montador de sessão gera as ~15–20 questões **na hora
+do clique** — mesmo padrão do `buildSession` atual (`src/utils/session.js`): sorteia
+tipos, direções (JP→PT/PT→JP), distratores (por regra, nunca colidindo com a resposta)
+e ordem; pesos do SRS fazem itens errados aparecerem mais; anti-repetição evita pergunta
+repetida em sequência. No L7, o banco de frases-modelo é maior que a sessão (~10–15
+modelos, ~6–8 sorteados; lacuna e distratores variam a cada sorteio). **Refazer uma
+lição = mesmo escopo, perguntas novas.** Por isso o conteúdo gerado pelo Codex são
+*bancos* (palavras, frases-modelo), nunca perguntas prontas.
+
 Regras de sequência dentro do capítulo:
 - A lição de **Palavras** de um tema vem ANTES da lição de **Frases** que usa aquelas
   palavras (aprende ねこ antes de montar ねこは…です).
