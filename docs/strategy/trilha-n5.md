@@ -20,10 +20,16 @@
    e assim por diante. Regra: **máx ~40% das palavras novas de um capítulo vêm do mesmo
    tema**, e todo tema grande (países, comidas, família…) goteja por **3+ capítulos**.
    A revisão SRS reapresenta os antigos junto dos novos.
-4. **Auto-completa pelo SRS** — a lição não tem "prova de conclusão" própria: ela fecha
-   quando os itens dela atingem os critérios de aprendizado do SRS compartilhado
-   (vocab-grammar.md §6.4). Quem já domina o conteúdo por fora (módulo de kana, numerais,
-   multiselect de vocab) vê a lição fechar sozinha — sem contagem dupla de XP.
+4. **Conclusão por jogada + espiral** *(revisado 2026-07-09 — decisão do Marcelo)* —
+   lição concluída = **1 sessão completa dela** ("passar de fase" imediato para a
+   próxima). A repetição NÃO vem de refazer a lição N vezes: vem da **espiral** — cada
+   lição mistura ~25% de questões dos escopos das lições anteriores do capítulo
+   (`reviewMix`), além do peso SRS para itens fracos. A **revisão** (última lição,
+   20–30 questões, escopo = capítulo inteiro + itens due antigos) é o gate: capítulo
+   concluído = revisão concluída. O auto-complete pelo SRS continua valendo como
+   segunda via: quem já domina todos os itens do escopo por fora (stage ≥ 2,
+   vocab-grammar.md §6.4) vê a lição fechar sozinha — sem contagem dupla de XP.
+   Estado de conclusão gravado em chave nova (`tnk_trilha`) — isolamento §2.1.
 5. **Sem trava dura** — a ordem é forte sugestão visual (lição atual destacada, futuras
    esmaecidas), mas o usuário pode entrar em qualquer lição. Essência do app.
 6. **Reuso total** — a trilha não inventa exercício novo: ela sequencia os módulos e
@@ -97,6 +103,48 @@ capítulos seguintes via revisão SRS — repetição espaçada real, não "viu 
 - Kana são pré-requisito de entrada da trilha (o app já cobre); o Capítulo 0 implícito é
   "domine hiragana" — a trilha aponta para o módulo de kana se o usuário chegar cru.
 - Numerais: os capítulos 3–4 **reusam o módulo de numerais** em vez de reensinar.
+
+### Schema v1 da receita (implementado — TAN-31, 2026-07-09)
+
+O formato vive no app em `src/data/trilha/schema.js` (typedefs JSDoc + validador puro),
+com o **Capítulo 1 como referência** em `src/data/trilha/chapters/ch1.js` e o índice dos
+12 em `chapters/index.js` (ch2–ch12 com `lessons: []` = "em breve", esmaecidos).
+`validateChapter`/`validateTrilha` rodam no CI (`__tests__/trilhaSchema.test.js`) —
+capítulo mal curado quebra o teste, não o app.
+
+```js
+// Lição — só referências, nunca perguntas prontas:
+{
+  id: 'ch1_l1',
+  kind: 'palavras',              // palavras | frases | kanji | montar | revisao
+  titleKey: 'trilha.ch1.l1.title', // i18n 3 línguas (strings.js)
+  icon: 'message-chat-circle',     // Untitled UI
+  scope: {                         // O QUÊ (omitido na revisao = capítulo todo)
+    vocabQuery: { tags: ['greetings'] }, // matchesQuery (TAN-29) no banco de vocab
+    // patternIds: ['gp_desu'],          // GrammarPatterns → resolvePattern
+    // kanjiChars: ['人', '日', '本'],    // banco n5Kanji
+  },
+  build: {                         // COMO
+    questions: [12, 16],           // min–max por sessão
+    exercises: [{ layout: 'L1', weight: 3, directions: ['jp_pt', 'pt_jp'] }],
+    // reviewMix: 0.25,            // espiral (default; runner ignora na 1ª lição)
+    // intro: { explanationKey },  // nota curta (lições de frases)
+  },
+}
+```
+
+Regras que o validador impõe: ids únicos · `revisao` única, última e sem scope ·
+kind × scope coerentes (frases/montar exigem `patternIds` etc.) · layouts do catálogo
+(L1/L2/L5/L6/L7) · `questions` min ≤ max · com os bancos fornecidos: query resolve ≥ 4
+palavras (edge #3), pattern/kanji existem, **palavras de um tema vêm ANTES das frases
+que usam o tema** (ou o pattern tem `fixedExamples`), `particleExercise` curado válido
+(TAN-15/29). Contrato de conteúdo do C1 (Codex): tags `greetings` ≥8, `countries` ≥5,
+`professions` ≥5; patterns `gp_desu`, `gp_wa` (partícula curada), `gp_ja_arimasen`,
+todos com `fixedExamples`.
+
+O runner de produção (Opus, restante do TAN-31) consome o schema com o motor já
+entregue: `resolvePattern`/`slotDistractors` (TAN-29), `pickDistractors`/
+`buildMatchPairs` (TAN-15), SRS compartilhado (TAN-8), atrás de `FLAGS.vocab`.
 
 ## 4. Os 12 capítulos (mapa MnN I / Genki I)
 
