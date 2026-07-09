@@ -27,6 +27,15 @@ Código: `src/features/exercises/layouts/TracingLayout.js` + `src/tracing/Tracin
 - **Modo blind** (`tracingBlind: true`) → esconde o guia e testa recall puro.
 - Reconhecimento e conclusão são gerenciados pelo `TracingCanvasNative` (dispara `onDone`).
 
+### Numeração progressiva (decisão 2026-07-08 — padrão para TODO tracing)
+
+Os números de ordem dos traços aparecem **um por vez**: só o número do traço atual é
+visível; o próximo aparece quando o traço anterior é concluído. Mostrar todos os números
+de uma vez polui visualmente (crítico em kanji de 10+ traços, ex. 曜 com 18) e foi
+descartado. Implementado como prop `progressiveHints` no `TracingCanvasNative` (validado
+no preview de kanji); **pendente**: ligar por padrão nos exercícios de tracing de kana das
+sessões reais — ticket no Linear (time TAN).
+
 ## Particularidades de comportamento
 
 - **Sem timer e sem botão Pular** — a pergunta se conclui pelo reconhecimento do traço.
