@@ -62,8 +62,9 @@ Existem **duas variantes** com a mesma ideia (linha de resposta + banco) mas mec
 - Arrastar/tocar de volta devolve o bloco ao banco.
 - Fica "pronto" (habilita o OK) quando **≥ 1** bloco está na resposta; valida a leitura kanji
   concatenada.
-- Cada peça mostra **kanji em cima + romaji embaixo**. Peça no banco = borda neutra; peça
-  colocada = borda destacada (`pri`).
+- Cada peça mostra **romaji em cima + kanji embaixo** (decisão 2026-07-09: legenda romaji
+  sempre EM CIMA, em todos os exercícios). Peça no banco = borda neutra; peça colocada =
+  borda destacada (`pri`).
 - Drag-and-drop delegado à lib `@jamsch/react-native-duo-drag-drop` (não reimplementar à mão).
 
 ## Quando usar
