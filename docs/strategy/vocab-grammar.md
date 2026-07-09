@@ -144,15 +144,35 @@ entram com a **Trilha N5** (seção 6.7) e o backoffice do professor; o formato 
 
 ### 3.4 `SRSState` — motor compartilhado `src/features/srs/`
 
+> **Implementado (TAN-8, 2026-07-09).** Schema abaixo é o real do app; API documentada
+> no header de `src/features/srs/index.js`. Sem `ease`/`interval` (Leitner simplificado:
+> intervalos fixos por stage, deriváveis de `stage`); itemType `pattern` virou `grammar`
+> e ganhou `kanji`/`kanjiWord` (kanji.md §4).
+
 ```js
+// AsyncStorage tnk_srs (chave nova — regra §2.1 #3):
+// { v: 1, updatedAt: epochMs, items: { [itemId]: SRSState } }
 {
-  itemId: "vw_neko",               // ou "gp_..."
-  itemType: "word" | "pattern",
-  stage: 0,                        // 0 novo · 1 reconhece · 2 produz · 3 domina · 4 consolidado
-  ease: 2.5, interval: 1, dueAt: 0,
-  lastResult: null, seenCount: 0, lapses: 0
+  t: "word" | "grammar" | "kanji" | "kanjiWord",
+  stage: 0,        // 0 novo · 1 reconhece · 2 produz · 3 domina · 4 consolidado
+  maxStage: 0,     // maior stage já atingido — NUNCA decresce (anti double-count de XP)
+  recog: 0,        // acertos de reconhecimento acumulados rumo ao stage 1 (precisa 2)
+  dueAt: 0,        // epoch ms UTC (0 = due agora) — nunca date local (edge #16)
+  lastAt: 0,       // epoch ms da última resposta
+  seen: 0, lapses: 0,
+  last: null       // 1 acerto · 0 erro · null nunca respondeu
 }
 ```
+
+- **Intervalos Leitner** (tabela inicial, calibrar depois — §10): stage 0 → due já ·
+  1 → 1 dia · 2 → 3 dias · 3 → 7 dias · 4 → 21 dias (fixo a cada revisão).
+- **Stage 3→4** exige produção + due (simétrico ao 2→3): "consolidado" atestado por recall.
+- **Erro**: cai 1 stage (piso 0), zera `recog`, `dueAt = now` (fila prioritária).
+- **Merge convidado→login** (edge #15): item a item — maior `stage` vence, `dueAt` mais
+  próximo vence, contadores = max. Remoto: doc único `srsStates/{uid}` (formato `gamStates`).
+- **Escrita transacional** no fim da sessão (edge #14): `applySession` é o único ponto de
+  escrita e retorna events (`stageBefore/After`, `maxStageBefore/After`, `wasDue`,
+  `xpWeight`) — bônus de domínio (★/missões) só pagam quando `maxStage` sobe.
 
 Estágios definem exercícios elegíveis: reconhecimento (select/match/ouvir) nos baixos,
 recall (digitar/montar) nos altos. Um item novo só entra em recall após ser reconhecido.
