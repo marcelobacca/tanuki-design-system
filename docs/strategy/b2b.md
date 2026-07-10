@@ -166,11 +166,14 @@ Critério para abrir tickets: **1–2 turmas reais comprometidas com um piloto**
 
 ## 9. Backlog do piloto
 
-> Espelhar no Linear (team TAN, projeto **Tanuki B2B Piloto**). Este doc é a fonte da
-> estratégia; o Linear, a do status. Tickets autocontidos — colar direto na ferramenta
-> executora. Ordem = dependência, não calendário. Regras de isolamento de
-> vocab-grammar §2.1 valem em todos: arquivos novos, flag desligada em produção,
-> chaves/coleções novas, branch própria.
+> **Espelhado no Linear (2026-07-10):** projeto
+> [Tanuki B2B Piloto](https://linear.app/tanuki-sensei/project/tanuki-b2b-piloto-8b2169f0b4fb),
+> tickets **TAN-75…TAN-94**, etiquetados por executor (`codex`/`claude`/`marcelo`).
+> Este doc é a fonte da estratégia; o Linear, a do status. Tickets autocontidos —
+> colar direto na ferramenta executora. Ordem = dependência, não calendário. Regras de
+> isolamento de vocab-grammar §2.1 valem em todos: arquivos novos, flag desligada em
+> produção, chaves/coleções novas, branch própria. (C2 não virou ticket novo — os
+> tickets de áudio já existem no projeto Tanuki Vocabulário.)
 
 ### Track B — Backend B2B `[Codex — executável já]`
 
