@@ -359,6 +359,10 @@ Missões novas: "complete 1 sessão de vocabulário", "revise N palavras", "domi
 
 ## 8. Backoffice do professor — porta aberta, produto NÃO definido
 
+> **Atualização 2026-07-10:** a estratégia B2B (escolas/professores) agora tem doc
+> próprio com fases e plano de validação — ver [b2b.md](./b2b.md). Os compromissos de
+> arquitetura abaixo continuam valendo e são a fundação daquele doc.
+
 > **Status: hipótese, precisa de muita validação (com professores reais) antes de
 > qualquer desenho de produto.** Nada aqui gera ticket. O fluxo de interação
 > (turmas, liberação, dashboard etc.) fica deliberadamente em aberto.
