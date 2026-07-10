@@ -1,9 +1,10 @@
 # Estratégia — B2B: Escolas e Professores
 
-> **Status: rascunho para validação (2026-07-10).** Evolui a "porta aberta" de
-> [vocab-grammar.md §8](./vocab-grammar.md) para uma estratégia com fases. **Nada aqui
-> gera ticket** até a rodada de validação com professores reais (§7) — o material de
-> apresentação dessa rodada acompanha este doc.
+> **Status: aprovado — piloto agosto/2026 em execução (2026-07-10).** Evolui a "porta
+> aberta" de [vocab-grammar.md §8](./vocab-grammar.md). A validação com professores (§7)
+> acontece em paralelo à construção do piloto — o prazo (aulas começam em agosto) exige
+> começar já. Backlog do piloto em §9; ritmo ditado por disponibilidade de tokens, sem
+> divisão por semanas.
 > Decidido em sessão de brainstorm no repo `tanuki-native` (2026-07-10).
 
 ---
@@ -132,8 +133,149 @@ preparado junto com este doc). Perguntas que precisam de resposta:
 
 Critério para abrir tickets: **1–2 turmas reais comprometidas com um piloto** da Fase 0.
 
-## 8. Backlog
+## 8. Decisões do piloto (fechadas 2026-07-10)
 
-Sem tickets até a validação (§7). Depois: projeto próprio no Linear (team TAN), fatiado
-por fase, 1 ticket por sessão, cada um autocontido — mesmo protocolo de
-vocab-grammar §9. Este doc permanece a fonte da estratégia; o Linear, a fonte do status.
+1. **Modelo de liberação, não editor de lições.** O professor marca checkboxes do que já
+   ensinou ("liberar família KA, koko/soko"); o app intersecta com a seleção de treino
+   existente. Editor de lições (Fase 1) só depois do piloto, se professores pedirem.
+2. **Tempo real, sem atualização de app.** Liberação é dado no Firestore; o app escuta o
+   doc da turma via `onSnapshot` — o cadeado abre no celular do aluno no momento do
+   check, como receber uma mensagem. OTA (expo-updates, já configurado) serve só para
+   entregar a *feature* uma vez, sem loja.
+3. **Um app só.** Nada de "Tanuki Aluno" separado (processo de loja mataria o prazo).
+   Vínculo por código no perfil + no fim do cadastro. Sem turma = app normal (futuro:
+   plano pago consumer).
+4. **Entrar é via código; sair só pelo professor.** Aluno não tem botão de sair (evita
+   evasão do acompanhamento). Turma errada = professor remove, aluno entra com o código
+   certo.
+5. **"Lição da semana" derivada, não autorada.** O *delta* da última liberação vira o
+   card "Novidades da turma" com sugestão de treino (novidade + revisão do anterior).
+6. **Catálogo de liberação gerado dos bancos, nunca mantido à mão.** Granularidade =
+   "o que um professor diria em aula" (família de kana, faixa de numerais, unidade
+   temática de vocab, padrão gramatical individual). Padrão declara dependência das
+   tags de vocab que consome (via `slots.js`) → o checklist avisa, não deixa quebrar.
+7. **Trilha em pausa (pin).** O piloto NÃO depende da Trilha N5; vocab e gramática
+   crescem como bancos + exercícios livres, sem a lógica de trilha. Integração
+   trilha×turma fica para depois.
+8. **Fora do piloto:** editor de lições, cobrança automatizada (piloto grátis/manual),
+   kanji e verbos conjugados no catálogo, múltiplos professores por turma, analytics
+   sofisticado (relatório v0 = query de agregação simples).
+9. **Divisão de execução por ferramenta:** Codex = lógica/backend/conteúdo (tickets com
+   aceite verificável); Claude/Opus = telas (app + web, seguindo o design system);
+   specs e tickets = Fable (semana de 2026-07-10).
+
+## 9. Backlog do piloto
+
+> Espelhar no Linear (team TAN, projeto **Tanuki B2B Piloto**). Este doc é a fonte da
+> estratégia; o Linear, a do status. Tickets autocontidos — colar direto na ferramenta
+> executora. Ordem = dependência, não calendário. Regras de isolamento de
+> vocab-grammar §2.1 valem em todos: arquivos novos, flag desligada em produção,
+> chaves/coleções novas, branch própria.
+
+### Track B — Backend B2B `[Codex — executável já]`
+
+- [ ] **B1 — Modelo de dados + Firestore rules + testes**
+  Coleções novas: `turmas/{turmaId}` `{ codigo, nome, professorUid, releases: {kana: [ids
+  de família], numerais: [ids de faixa], vocabTags: [], patternIds: []}, createdAt }`;
+  `turmas/{turmaId}/membros/{uid}` `{ displayName, joinedAt }`; `praticas/{autoId}`
+  `{ uid, turmaId, escopo, iniciadaEm, total, acertos, erros: [{itemId, count}] }`.
+  Rules: aluno cria a própria prática e o próprio doc de membro (join); só o professor
+  da turma edita `releases` e remove membros; professor lê membros + práticas só da
+  própria turma; aluno lê o doc da própria turma (para o listener). Professor
+  identificado por doc em `professores/{uid}` (criado manualmente no piloto).
+  *Aceite:* testes de rules no emulador (`firebase emulators:exec`) cobrindo cada
+  permissão e cada negação; nenhum toque em coleções existentes.
+
+- [ ] **B2 — Código de convite + join transacional**
+  Código curto legível (6 chars, sem 0/O/1/I), único por turma. Join: buscar turma pelo
+  código + criar doc de membro (transação/batch client-side; rules de B1 garantem).
+  Sem saída pelo aluno (decisão §8.4); remoção de membro = só professor.
+  *Aceite:* testes — código inválido, turma inexistente, join duplicado (idempotente),
+  remoção pelo professor, aluno não consegue se remover nem remover terceiros.
+
+- [ ] **B3 — Catálogo de liberação gerado dos bancos**
+  Script `scripts/build-releasables.mjs` → gera `src/data/releasables.js` (header
+  "DO NOT EDIT", padrão de `components/Icon.js`). Unidades: famílias de
+  `src/data/kana/*` (HF/HY/KF/KY + sokuon + vogais longas, ids existentes), faixas de
+  numerais (definir no script: 1–10, 11–99, 100–999, 1000+, conforme
+  `src/utils/numerals/`), tags de vocab (do banco novo, quando existir — C1),
+  padrões (de `GrammarPatterns`, com `deps: [vocabTags]` extraídas dos slots via
+  `src/utils/grammar/slots.js`). Cada item: `{ id, module, labelKey, deps? }` +
+  chaves i18n nas 3 línguas.
+  *Aceite:* teste valida ids únicos, deps apontando para itens existentes, e que rodar
+  o script 2× é idempotente.
+
+- [ ] **B4 — Módulo `src/features/turma/` (lógica, sem UI)**
+  Store + API: `joinTurma(codigo)`, `getTurma()`, listener `onSnapshot` do doc da turma
+  mantendo `releases` em estado local (com cache AsyncStorage para abrir offline).
+  Atrás de flag desligada (criar `FLAGS` se ainda não existir, padrão kanji §8).
+  *Aceite:* testes unitários com Firestore mockado; app sem turma se comporta
+  exatamente como hoje.
+
+- [ ] **B5 — Write-back de práticas com fila offline**
+  `src/features/turma/practiceLog.js`: ao concluir sessão (hook único em
+  `completeSession.js`, ponto de orquestração existente), se há turma, enfileira
+  `{escopo, total, acertos, erros por item}` e envia; offline → fila persistida em
+  AsyncStorage, flush ao reconectar (precedente: `src/features/srs/sync.js`).
+  *Aceite:* teste — sessão offline enfileira, reconexão sobe, sem duplicar; sem turma
+  = zero writes.
+
+- [ ] **B6 — Interseção liberação × conteúdo**
+  Função pura `filterByReleases(releasables, releases)` consumida pela seleção de
+  treino: retorna o que está liberado/bloqueado por módulo. Sem turma → tudo liberado.
+  *Aceite:* testes puros; nenhuma tela alterada neste ticket.
+
+### Track C — Conteúdo `[Codex — executável já]`
+
+- [ ] **C1 — Banco de vocabulário (schema novo) — unidades do 1º semestre**
+  Executar primeiro os tickets já existentes de criação de palavras + áudio; este
+  ticket amplia: unidades temáticas cobrindo um 1º semestre típico (saudações, sala de
+  aula/objetos, lugares, pessoas, comida básica…), ≥ 8 palavras/unidade (mín. 4 —
+  `MIN_VOCAB_POOL`), traduções PT/EN/ES, tags corretas, `isGrammaticalWord` para
+  koko/kore/partículas (vocab-grammar §2.12). Áudio é bônus, nunca bloqueador.
+  *Aceite:* validadores/testes existentes passam; nenhuma unidade abaixo do pool mínimo;
+  sem homófonos/sinônimos como distratores entre si (edge cases vocab-grammar §7).
+
+- [ ] **C2 — Áudio kanji + vocab** — tickets já existentes; mandar executar.
+
+- [ ] **C3 — Padrões de gramática do 1º semestre (sem trilha)**
+  `GrammarPatterns`: これ/それ/あれ, ここ/そこ/あそこ (já iniciado), partículas は e か
+  (`particleExercise`), です/じゃないです. Slots consumindo tags de C1; validados por
+  `validateParticleExercise`/`slots.js`. Nada de lógica de trilha (pin, decisão §8.7).
+  *Aceite:* validadores passam; cada padrão tem `fixedExamples` OU tags cobertas por C1.
+
+- [ ] **C4 — Teste de cobertura contra o programa da professora** `[Marcelo]`
+  Pegar o plano do semestre dela e mapear semana → unidade do catálogo. Onde faltar:
+  ou vira item de C1/C3, ou fica registrado que aquela semana não terá prática no app.
+
+### Track A — App do aluno (telas) `[Claude/Opus — próxima semana; depende de B2/B4/B6]`
+
+- [ ] **A1 — Fluxo "Entrar na turma"**: item no perfil + passo opcional no fim do
+  cadastro ("tem código da sua escola?"), com aviso de consentimento (professor passa a
+  ver o progresso — LGPD §6.1). Estados: código inválido, já membro, sucesso.
+- [ ] **A2 — Cadeados na seleção de treino**: itens não liberados visíveis mas
+  bloqueados ("sua turma ainda não chegou aqui"), consumindo B6. Zero layout shift.
+- [ ] **A3 — Card "Novidades da turma"** na home: delta da última liberação + botão que
+  inicia treino focado (novidade + revisão). Some quando não há turma/novidade.
+- [ ] **A4 — Release OTA** do lado do aluno (flag ligada) + smoke test em device.
+
+### Track W — Web do professor `[scaffold/queries: Codex · telas: Claude/Opus; depende de B1/B3]`
+
+- [ ] **W1 — Scaffold**: Vite + React + Firebase JS SDK, deploy Vercel, login
+  e-mail/senha restrito a `professores/{uid}`. `[Codex]`
+- [ ] **W2 — Tela Turma**: criar turma, exibir código de convite, lista de alunos,
+  remover/trocar aluno. `[Claude]`
+- [ ] **W3 — Tela Liberação**: catálogo (B3) em checkboxes agrupados por módulo, com
+  aviso de dependência ("koko/soko usa vocabulário de Lugares — libere junto").
+  Salvar = grava `releases` (alunos veem na hora). `[Claude]`
+- [ ] **W4 — Telas Atividade + Dificuldades**: quem praticou o quê/quando/aproveitamento;
+  top 10 itens mais errados da turma (agregação client-side v0 sobre `praticas`).
+  `[queries: Codex · UI: Claude]`
+
+### Track P — Piloto `[Marcelo]`
+
+- [ ] **P1 — Compromisso da professora** (turma, dia, programa do semestre → C4).
+- [ ] **P2 — Ensaio geral**: professora cria a turma real, você entra como aluno fake,
+  ciclo completo (liberar → praticar → relatório) antes da primeira aula. Ajustes via OTA.
+- [ ] **P3 — Rodada de validação** (§7) com professora + mentora usando o material de
+  apresentação — colher respostas e atualizar §5 (modelo comercial).
