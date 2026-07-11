@@ -8,10 +8,11 @@ numerais japoneses. **Dark mode only** (light mode em estudo).
 
 ---
 
-## Os três eixos da documentação
+## Os quatro eixos da documentação
 
 | Eixo | O que é | Onde |
 |---|---|---|
+| 🧭 **Estratégia** | O futuro do produto — visão e decisões aprovadas (com data) por módulo | [docs/strategy/](docs/strategy/) — vocab-grammar · trilha-n5 · kanji · b2b |
 | 🎨 **Visual** | Tokens (cores, tipografia, espaçamento) e componentes de UI | [docs/index.md](docs/index.md) |
 | 🖼️ **Layouts** | Os padrões de tela reutilizáveis (L0–L5) — a casca | [docs/layouts/index.md](docs/layouts/index.md) |
 | 🧩 **Exercícios** | A lógica de cada exercício, que **usa** um layout | [docs/exercises/index.md](docs/exercises/index.md) |
@@ -22,6 +23,8 @@ tokens do design system."*
 
 ## Por onde começar, conforme a tarefa
 
+- **"Decidir escopo, prioridade ou rumo de um módulo"** → [docs/strategy/](docs/strategy/) —
+  as decisões aprovadas estão lá com data; não re-decidir nem contrariar sem registro novo.
 - **"Criar um exercício novo no padrão do X"** → leia o layout que o X usa em
   [docs/layouts/](docs/layouts/index.md), depois o exercício X em [docs/exercises/](docs/exercises/index.md),
   e replique a estrutura.

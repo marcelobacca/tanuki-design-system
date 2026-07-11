@@ -7,7 +7,10 @@ Este repositório é a **fonte da verdade** de como o app se parece e como funci
 antes de escrever qualquer código de tela ou exercício.**
 
 ## Por onde começar
-Leia **`GUIDE.md`** na raiz primeiro — é o índice que liga os três eixos:
+Leia **`GUIDE.md`** na raiz primeiro — é o índice que liga os quatro eixos:
+- `docs/strategy/` → **futuro do produto**: visão e decisões aprovadas (com data) de
+  vocabulário+gramática, Trilha N5, kanji e B2B. **Leia antes de qualquer decisão de
+  produto ou conteúdo — não re-decidir o que já está registrado lá.**
 - `docs/index.md` + `docs/01-colors.md` → **visual**: tokens de cor, tipografia, espaçamento.
 - `docs/layouts/` → **padrões de tela reutilizáveis (L0–L5)**, a casca visual/interação:
   - **L0** Session Shell · **L1** Select Grid · **L2** Text Input · **L3** Build Blocks · **L4** Impostor Grid · **L5** Tracing Canvas.
