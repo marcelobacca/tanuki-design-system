@@ -191,12 +191,113 @@ Critério para abrir tickets: **1–2 turmas reais comprometidas com um piloto**
 
 ### 8c. Tickets novos decorrentes
 
-- **P4 `[Marcelo+Claude]`** — Análise do livro do curso por lição: vocab, gramática/
-  partículas, tipos de exercício aplicados. Saída em `tanuki-native/docs/b2b/analise-livro/`.
-  (Instrução operacional salva na memória do Claude no projeto tanuki-native.)
-- **C5 `[Codex — depende de P4]`** — Converter banco do protótipo + análise para o
-  schema oficial de vocab (genérico, sem menção a livro) + gerar config de lições da
-  turma piloto.
+- **P4 `[Marcelo+Claude]`** — Análise do livro do curso por lição. **✅ FEITO 2026-07-19**
+  — saída em `tanuki-native/docs/b2b/analise-livro/` (index + licao-01..04): vocab,
+  gramática, numerais aplicados (idade/andar/preço/horas/minutos/kara-made) e mapa
+  treino→layout por lição.
+- ~~C5~~ — absorvido pelo plano v2 (§10, ticket B3-rev).
+
+---
+
+## 10. Plano de execução v2 (2026-07-19) — 3 frentes
+
+> **Substitui o §9 como backlog vivo.** Decisões novas do Marcelo: (a) ambiente do
+> professor em **shadcn/ui** (tema default preto/branco, sem cores da marca);
+> (b) numerais aplicados entram **primeiro no app consumer** (para todos) e são
+> reusados no ambiente do aluno; (c) lição = **menu de treinos focados** (partículas /
+> verbos / preços / horas / vocabulário / frases…) seguindo a cronologia do livro;
+> (d) **romaji = toggle por preferência do aluno** (padrão ligado; apoio nunca entrega
+> resposta em produção; katakana sempre com apoio); (e) execução: backend = Claude ou
+> Codex (tickets autocontidos), front (web + app) = Opus.
+> Mortos do §9: A2 (cadeados), B6 (interseção). B3 (releasables) já executado; a peça
+> de conteúdo agora é B3-rev (lições/receitas).
+
+### Track N — Numerais aplicados no app consumer `[independente — começar já]`
+
+- [ ] **N1 — Engine de contadores** `[backend]`
+  `src/utils/numerals/counters.js` (novo): leituras para 〜さい (いっさい/はっさい/
+  はたち), 〜かい (いっかい/さんがい/ろっかい/はっかい/じゅっかい), 〜えん (compõe com
+  centenas/milhares existentes), 〜じ (よじ/しちじ/くじ), 〜ふん/ぷん (いっぷん/さんぷん/
+  よんぷん/ろっぷん/はっぷん/じゅっぷん + はん). API: `readCounter(n, counter)` +
+  gerador de distratores (leitura regular incorreta — ex. よんじ — como distrator
+  principal). *Aceite:* testes unitários cobrindo TODOS os irregulares; zero UI.
+- [ ] **N2 — Exercício "numeral aplicado"** `[front/Opus — depende N1]`
+  Novo exercício no módulo de numerais existente: enunciado «4じ», 4 opções de leitura
+  em kana (Select Grid L1). Seções novas na seleção: Idade, Andares, Preços, Horas,
+  Minutos. i18n PT/EN/ES; tokens do DS; **atualizar `docs/exercises/` no
+  tanuki-design-system (regra obrigatória)**. Áudio: reusar `num_t4_*` já gerados
+  (horas etc.); faltantes = bônus, nunca bloqueador.
+- [ ] **N3 — Validação em device + OTA** `[Marcelo]`
+
+### Track B — Backend turma (Firebase) `[backend — Claude ou Codex]`
+
+- [ ] **B1-rev — Modelo de dados + rules + testes de emulador**
+  `turmas/{id}` `{codigo, nome, professorUid, semana: {lessonId, treinoIds[]},
+  createdAt}` · `turmas/{id}/membros/{uid}` `{displayName, joinedAt}` ·
+  `praticas/{autoId}` `{uid, turmaId, lessonId, treinoId, tipo, total, acertos,
+  erros: [{itemId, count}], iniciadaEm}`. Rules iguais ao B1 original (aluno cria a
+  própria prática/membership; professor gerencia a própria turma; professor =
+  doc em `professores/{uid}` manual no piloto). *Aceite:* `firebase emulators:exec`
+  cobrindo cada permissão/negação; zero toque em coleções existentes.
+- [ ] **B2 — Código de convite + join transacional** — inalterado (§9-B2).
+- [ ] **B3-rev — Config de lições + banco do piloto (a peça de conteúdo)**
+  (1) Schema `src/data/turma/lessons.js`: lição = `{id, tituloKey, treinos: [{id,
+  tipo: vocabQuiz|matchPairs|particleFill|buildSentence|verbForm|numeralApplied,
+  escopo: {tags?|patternIds?|counter?|range?}, questoes}]}` + validador (pool mínimo,
+  padrão com vocab coberto — reusar validateChapter/slots). (2) Converter as 132
+  palavras de `~/tanuki-estudo-prova/data.js` para o banco oficial (genérico, traduções
+  próprias, SEM nome de livro; ids/tags estáveis). (3) Gerar lições 1–4 do piloto a
+  partir de `tanuki-native/docs/b2b/analise-livro/` (tabela treino→lição do index.md).
+  *Aceite:* validador passa; cada treino resolve escopo contra os bancos; teste de
+  round-trip do schema.
+- [ ] **B4 — Módulo `src/features/turma/`** — igual ao original (join/listener/flag),
+  listener agora observa `semana`.
+- [ ] **B5 — Write-back de práticas (fila offline)** — igual ao original, granularidade
+  por treino (`lessonId`+`treinoId`), hook único em `completeSession.js`.
+
+### Track W — Web do professor `[shadcn/ui · front = Opus, queries = backend]`
+
+- [ ] **W1 — Scaffold** `[Opus]` Vite + React + TS + Tailwind + **shadcn/ui tema
+  default (preto/branco, sem cores da marca)**. Firebase Auth e-mail/senha restrito a
+  `professores/{uid}`; deploy Vercel. *Aceite:* login funciona, rota protegida.
+- [ ] **W2 — Turma** `[Opus — depende B1/B2]` Criar turma, exibir código de convite
+  (copiável), lista de alunos, remover aluno.
+- [ ] **W3 — Treino da semana** `[Opus — depende B3-rev]` Selecionar lição + treinos
+  recomendados (grava `semana` no doc da turma; alunos veem em tempo real). Aviso de
+  dependência quando um treino exige vocab de outra lição.
+- [ ] **W4 — Relatório da turma** `[queries: backend · UI: Opus — depende B5]`
+  (a) Atividade: quem praticou, o quê, quando, aproveitamento; (b) Dificuldades:
+  aproveitamento por treino/tópico + top 10 itens mais errados ("70% erram 4じ").
+  Agregação client-side v0 sobre `praticas`.
+- [ ] **W5 — Relatório por aluno** `[Opus — depende W4]` Drill-down: sessões,
+  aproveitamento por treino, últimos erros. Desempenho geral simplificado.
+
+### Track S — App do aluno `[front = Opus · depende B2/B3-rev/B4]`
+
+- [ ] **S1 — Entrar na turma** Fluxo no perfil + passo opcional pós-cadastro; estados
+  código inválido/já membro/sucesso; aviso de consentimento (professor vê progresso).
+- [ ] **S2 — Área "Minha turma"** Lista de lições (ordem do curso) → **menu de treinos
+  da lição** (vocabulário / partículas / verbos / numerais aplicados / montar frases /
+  revisão geral — só os que a lição tem, conforme B3-rev) → sessão via runner
+  existente. Destaque na lição/treinos marcados na `semana`. **Preferência de romaji**
+  (toggle em ajustes, padrão ligado; produção nunca revela resposta; katakana sempre
+  com apoio). Zero layout shift.
+- [ ] **S3 — Card "Treino da semana" na home** Delta da `semana`; some sem turma.
+- [ ] **S4 — OTA + smoke test em device** `[Marcelo + Opus]`
+
+### Track P — Piloto `[Marcelo]` — P1 (compromisso da professora), P2 (ensaio geral),
+P3 (rodada de validação §7). P4 ✅ feito.
+
+### Ordem sugerida (execução aos poucos)
+
+1. **N1 → N2** (valor imediato no consumer; nada depende deles)
+2. **B1-rev → B2** (destrava tudo de turma)
+3. **B3-rev** (conteúdo das lições — destrava W3 e S2)
+4. **W1 → W2** (professora já pode criar a turma real)
+5. **B4 → B5** (app conectado + dados fluindo)
+6. **S1 → S2 → S3** (experiência do aluno completa)
+7. **W3 → W4 → W5** (relatórios com dados reais chegando)
+8. **P2 ensaio geral → aula 1**
 
 ## 9. Backlog do piloto
 
