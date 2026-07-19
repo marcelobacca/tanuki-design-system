@@ -164,6 +164,40 @@ Critério para abrir tickets: **1–2 turmas reais comprometidas com um piloto**
    aceite verificável); Claude/Opus = telas (app + web, seguindo o design system);
    specs e tickets = Fable (semana de 2026-07-10).
 
+### 8b. Revisões (2026-07-19)
+
+1. **Recomendação, não cadeado** (revisa §8.1–8.2). O professor marca o "treino da
+   semana"; nada fica bloqueado no app — se ele esquecer de marcar, o aluno só continua
+   treinando livre (degradação graciosa). Caem A2 (cadeados) e B6 (interseção); W3 vira
+   tela "Treino da semana" (mesmos checkboxes, semântica de recomendação).
+2. **Lição do livro = unidade central.** Validado no protótipo `~/tanuki-estudo-prova`
+   (PDF do livro → lições → vocab tagueado, 132 palavras L1–L4): o banco de vocabulário
+   é GENÉRICO (japonês iniciante/N5, traduções próprias); o agrupamento "lição N" é
+   **configuração da turma**, não do banco. Cada turma tem seu mapeamento lição→itens,
+   criado no onboarding (manual/concierge no piloto: Marcelo + Claude analisam o
+   material do professor).
+3. **Nome de livro nunca aparece no produto.** No app é só "Lição 4 · Minha turma".
+   Estrutura vem do professor (que usa o livro licitamente no curso), não de fábrica.
+   Catálogos futuros legalmente limpos: Irodori/Marugoto (CC BY) e JLPT N5. Sem
+   biblioteca de livros por ora.
+4. **Área "Minha turma" no app.** Sem turma = app intacto. Com turma: item novo no menu
+   com as lições da turma; lição marcada pelo professor ganha destaque (+ card na home);
+   lições anteriores sempre acessíveis para revisão. Dentro da lição, **"revisão
+   geral"** = trilha curta de exercícios da lição (vocab → partículas → montar frases →
+   numerais aplicados), gerada do banco — sempre nova.
+5. **Pendência de conteúdo identificada:** exercícios de numerais APLICADOS (andares
+   〜かい, idade 〜さい, preços 〜えん, intervalos から〜まで, horas) — a análise do
+   livro (P4) especifica o que cada lição exige.
+
+### 8c. Tickets novos decorrentes
+
+- **P4 `[Marcelo+Claude]`** — Análise do livro do curso por lição: vocab, gramática/
+  partículas, tipos de exercício aplicados. Saída em `tanuki-native/docs/b2b/analise-livro/`.
+  (Instrução operacional salva na memória do Claude no projeto tanuki-native.)
+- **C5 `[Codex — depende de P4]`** — Converter banco do protótipo + análise para o
+  schema oficial de vocab (genérico, sem menção a livro) + gerar config de lições da
+  turma piloto.
+
 ## 9. Backlog do piloto
 
 > **Espelhado no Linear (2026-07-10):** projeto
